@@ -38,22 +38,28 @@ public class DataContainer {
     public static DefaultListModel listModelLostBetsInProg = new DefaultListModel();
     
     public static DefaultComboBoxModel comboBoxmodelProgressions = new DefaultComboBoxModel();
+    public static DefaultComboBoxModel comboBoxModelAllProgressions = new DefaultComboBoxModel();
     public static DefaultComboBoxModel comboBoxModelDate = new DefaultComboBoxModel();
     
     public static void fillActiveProgressionsCombo()
     {
         for(Progression p : dataFromDB.getProgressions())
-        {
             comboBoxmodelProgressions.addElement(p);
-        }
+    }
+    
+    public static void fillAllProgressionsCombo()
+    {
+        for(Progression p : dataFromDB.getResolvedPregressions())
+            comboBoxModelAllProgressions.addElement(p);
+        
+        for(Progression p : dataFromDB.getProgressions())
+            comboBoxModelAllProgressions.addElement(p);
     }
     
     public static void fillDateCombo()
     {
         for(String s : dataFromDB.getDates())
-        {
             comboBoxModelDate.addElement(s);
-        }
     }
     
     public static void updateLists()
@@ -68,6 +74,7 @@ public class DataContainer {
     {
         comboBoxmodelProgressions.removeAllElements();
         comboBoxModelDate.removeAllElements();
+        comboBoxModelAllProgressions.removeAllElements();
         
         listModelAllActive.clear();
         listModelActiveNotInProg.clear();

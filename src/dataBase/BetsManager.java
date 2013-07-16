@@ -25,6 +25,7 @@ public class BetsManager extends javax.swing.JPanel {
     
     private Bet selectedBet = null;
     private BetInProgression selectedBetInProg = null;
+    private Progression selectedProgression = null;
     
     private DefaultListModel filteredBets = new DefaultListModel();
       
@@ -34,6 +35,7 @@ public class BetsManager extends javax.swing.JPanel {
         this.setSize(400, 400);
        
         setFields();
+        activateButtons(false);
         fillLists();         
         fillTodayBets();
         fillEndedBetsToUpdate();
@@ -55,7 +57,6 @@ public class BetsManager extends javax.swing.JPanel {
         jButtonUpdate.setText("Update");
         jLabelInformation.setText("");
         jButtonAddNewBet.setText("Add new bet");
-        jButtonViewNote.setText("View note");
         jButtonEdit.setText("Edit");
         jButtonDelete.setText("Delete");
         
@@ -66,6 +67,7 @@ public class BetsManager extends javax.swing.JPanel {
     {
         DataContainer.fillActiveProgressionsCombo();
         DataContainer.fillDateCombo();
+        DataContainer.fillAllProgressionsCombo();
         
         DataContainer.fillActiveBetsInProgression();
         DataContainer.fillActiveBetsNotInProgression();
@@ -160,6 +162,12 @@ public class BetsManager extends javax.swing.JPanel {
         }
     }
     
+    private void activateButtons(boolean bool)
+    {
+        jButtonDelete.setEnabled(bool);
+        jButtonEdit.setEnabled(bool);
+    }
+    
     private void comboBoxActionPerformed()
     {
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -173,6 +181,7 @@ public class BetsManager extends javax.swing.JPanel {
                     jListBets.updateUI();
                     jTextAreaBetInfo.setText("Choose other Bet Status to view bet information.");
                     jComboBoxDate.setEnabled(false);
+                    activateButtons(false);
                 }       
                 
                 if(jComboBoxBetStatus.getSelectedItem().toString().equals("Active bets not in progressions"))
@@ -183,6 +192,7 @@ public class BetsManager extends javax.swing.JPanel {
                     jListBets.updateUI();
                     jTextAreaBetInfo.setText("");
                     jComboBoxDate.setEnabled(false);
+                    activateButtons(true);
                 }
                 
                 if(jComboBoxBetStatus.getSelectedItem().toString().equals("Active bets in progressions"))
@@ -193,6 +203,7 @@ public class BetsManager extends javax.swing.JPanel {
                     jListBets.updateUI();
                     jTextAreaBetInfo.setText("");
                     jComboBoxDate.setEnabled(false);
+                    activateButtons(true);
                 }
         
                 if(jComboBoxBetStatus.getSelectedItem().toString().equals("Active progressions"))
@@ -203,6 +214,7 @@ public class BetsManager extends javax.swing.JPanel {
                     jListBets.updateUI();
                     jTextAreaBetInfo.setText("");
                     jComboBoxDate.setEnabled(false);
+                    activateButtons(true);
                 }
         
                 if(jComboBoxBetStatus.getSelectedItem().toString().equals("Resolved bets not in progressions"))
@@ -214,6 +226,7 @@ public class BetsManager extends javax.swing.JPanel {
                     jListBets.updateUI();
                     jTextAreaBetInfo.setText("");
                     jComboBoxDate.setEnabled(true);
+                    activateButtons(true);
                 }
         
                 if(jComboBoxBetStatus.getSelectedItem().toString().equals("Resolved bets in progressions"))
@@ -224,6 +237,7 @@ public class BetsManager extends javax.swing.JPanel {
                     jListBets.updateUI();
                     jTextAreaBetInfo.setText("");
                     jComboBoxDate.setEnabled(true);
+                    activateButtons(true);
                 }
         
                 if(jComboBoxBetStatus.getSelectedItem().toString().equals("Resolved progressions"))
@@ -232,6 +246,7 @@ public class BetsManager extends javax.swing.JPanel {
                     jListBets.updateUI();
                     jTextAreaBetInfo.setText("");
                     jComboBoxDate.setEnabled(false);
+                    activateButtons(true);
                 }
                 
                 if(jComboBoxBetStatus.getSelectedItem().toString().equals("Won bets not in progressions"))
@@ -242,6 +257,7 @@ public class BetsManager extends javax.swing.JPanel {
                     jListBets.updateUI();
                     jTextAreaBetInfo.setText("");
                     jComboBoxDate.setEnabled(true);
+                    activateButtons(true);
                 }
                 
                 if(jComboBoxBetStatus.getSelectedItem().toString().equals("Lost bets not in progressions"))
@@ -252,6 +268,7 @@ public class BetsManager extends javax.swing.JPanel {
                     jListBets.updateUI();
                     jTextAreaBetInfo.setText("");
                     jComboBoxDate.setEnabled(true);
+                    activateButtons(true);
                 }               
                                    
                 if(jComboBoxBetStatus.getSelectedItem().toString().equals("Won bets in progressions"))
@@ -262,6 +279,7 @@ public class BetsManager extends javax.swing.JPanel {
                     jListBets.updateUI();
                     jTextAreaBetInfo.setText("");
                     jComboBoxDate.setEnabled(true);
+                    activateButtons(true);
                 }
                 
                 if(jComboBoxBetStatus.getSelectedItem().toString().equals("Lost bets in progressions"))
@@ -272,6 +290,7 @@ public class BetsManager extends javax.swing.JPanel {
                     jListBets.updateUI();
                     jTextAreaBetInfo.setText("");
                     jComboBoxDate.setEnabled(true);
+                    activateButtons(true);
                 }              
             }
         });        
@@ -306,7 +325,6 @@ public class BetsManager extends javax.swing.JPanel {
         jListEndedBetsInProgToUpdate = new javax.swing.JList();
         jSeparator1 = new javax.swing.JSeparator();
         jButtonAddNewBet = new javax.swing.JButton();
-        jButtonViewNote = new javax.swing.JButton();
         jButtonEdit = new javax.swing.JButton();
         jButtonDelete = new javax.swing.JButton();
         jComboBoxDate = new javax.swing.JComboBox();
@@ -389,8 +407,6 @@ public class BetsManager extends javax.swing.JPanel {
             }
         });
 
-        jButtonViewNote.setText("jButton1");
-
         jButtonEdit.setText("jButton2");
         jButtonEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -447,12 +463,10 @@ public class BetsManager extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelInformation)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButtonViewNote, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButtonEdit)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButtonDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(0, 196, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -483,15 +497,14 @@ public class BetsManager extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButtonDelete, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
-                            .addComponent(jButtonEdit, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
-                            .addComponent(jButtonViewNote, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButtonEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabelInformation))
-                    .addComponent(jScrollPane1))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -676,6 +689,16 @@ public class BetsManager extends javax.swing.JPanel {
                 DataContainer.id = betId;
     }
     
+    private void saveProgressionData(ListModel listModel)
+    {
+        //zapamietanie danych progresji
+        DataContainer.object = listModel.getElementAt(
+                jListBets.getSelectedIndex());
+        selectedProgression = (Progression) DataContainer.object;
+        betId = selectedProgression.getProgressionId();
+        DataContainer.id = betId;
+    }
+    
     private void runEditWindow()
     {
             //uruchomienie okna edycji zakladu
@@ -683,10 +706,23 @@ public class BetsManager extends javax.swing.JPanel {
             editBetFrame.setVisible(true);
             editBetFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             editBetFrame.setSize(445, 445);
-            editBetFrame.setTitle("Edit");
+            editBetFrame.setTitle("Edit bet");
 
             EditBet editBet = new EditBet();
             editBetFrame.add(editBet);
+    }
+    
+    private void runEditProgressionWindow()
+    {
+        //uruchomienie okna edycji progresji
+        JFrame editProgFrame = new JFrame();
+        editProgFrame.setVisible(true);
+        editProgFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        editProgFrame.setSize(350, 320);
+        editProgFrame.setTitle("Edit progression");
+        
+        EditProgression editProg = new EditProgression();
+        editProgFrame.add(editProg);       
     }
     
     private void jButtonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditActionPerformed
@@ -717,6 +753,12 @@ public class BetsManager extends javax.swing.JPanel {
                   runEditWindow();
             }
             
+            if(jComboBoxBetStatus.getSelectedItem().toString().equals("Resolved bets not in progressions"))
+            {
+                saveBetData(DataContainer.listModelResolvedBetsNotInProg);
+                runEditWindow();
+            }
+            
             if(jComboBoxBetStatus.getSelectedItem().toString().equals("Active bets in progressions"))
             {
                   saveBetInProgData(DataContainer.listModelActiveInProg);;
@@ -734,6 +776,24 @@ public class BetsManager extends javax.swing.JPanel {
                   saveBetInProgData(DataContainer.listModelLostBetsInProg);
                   runEditWindow();
             }          
+            
+            if(jComboBoxBetStatus.getSelectedItem().toString().equals("Resolved bets in progressions"))
+            {
+                saveBetInProgData(DataContainer.listModelResolvedBetsInProg);
+                runEditWindow();
+            }
+            
+            if(jComboBoxBetStatus.getSelectedItem().toString().equals("Active progressions"))
+            {
+                saveProgressionData(DataContainer.listModelProgressions);
+                runEditProgressionWindow();
+            }
+            
+            if(jComboBoxBetStatus.getSelectedItem().toString().equals("Resolved progressions"))
+            {
+                saveProgressionData(DataContainer.listModelResolvedProgressions);
+                runEditProgressionWindow();
+            }
         }
     }//GEN-LAST:event_jButtonEditActionPerformed
 
@@ -751,6 +811,13 @@ public class BetsManager extends javax.swing.JPanel {
     
     private void jButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteActionPerformed
         
+        //
+        //TODO delete - autocommit
+        //
+        //      AUTOCOMMIT = false  !!!!!!!!!!!!!!!!!
+        //
+        //
+        
         try
                 {
                     DataContainer.dataFromDB.getQueryManager().getConn().setAutoCommit(false);
@@ -765,9 +832,11 @@ public class BetsManager extends javax.swing.JPanel {
         if(jComboBoxBetStatus.getSelectedItem().toString().equals("Active bets not in progressions")
                 || jComboBoxBetStatus.getSelectedItem().toString().equals("Won bets not in progressions")
                 || jComboBoxBetStatus.getSelectedItem().toString().equals("Lost bets not in progressions")
+                || jComboBoxBetStatus.getSelectedItem().toString().equals("Resolved bets not in progressions")
                 || jComboBoxBetStatus.getSelectedItem().toString().equals("Active bets in progressions")
                 || jComboBoxBetStatus.getSelectedItem().toString().equals("Won bets in progressions")
-                || jComboBoxBetStatus.getSelectedItem().toString().equals("Lost bets in progressions"))
+                || jComboBoxBetStatus.getSelectedItem().toString().equals("Lost bets in progressions")
+                || jComboBoxBetStatus.getSelectedItem().toString().equals("Resolved bets in progressions"))
         {
             
             Bet betToDelete = (Bet) DataContainer.object;
@@ -776,8 +845,8 @@ public class BetsManager extends javax.swing.JPanel {
             DataContainer.updateLists();
         }
         
-        //TODO resolved, won, lost
-        if(jComboBoxBetStatus.getSelectedItem().toString().equals("Active progressions"))
+        if(jComboBoxBetStatus.getSelectedItem().toString().equals("Active progressions")
+                || jComboBoxBetStatus.getSelectedItem().toString().equals("Resolved progressions"))
         {
             Progression progToDelete = (Progression) DataContainer.object;
             DataContainer.id = progToDelete.getProgressionId();
@@ -795,7 +864,6 @@ public class BetsManager extends javax.swing.JPanel {
     private javax.swing.JButton jButtonDelete;
     private javax.swing.JButton jButtonEdit;
     private javax.swing.JButton jButtonUpdate;
-    private javax.swing.JButton jButtonViewNote;
     private javax.swing.JComboBox jComboBoxBetStatus;
     private javax.swing.JComboBox jComboBoxDate;
     private javax.swing.JLabel jLabel1;

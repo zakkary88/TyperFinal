@@ -4,7 +4,6 @@
  */
 package dataBase;
 
-import javax.swing.JFrame;
 
 /**
  *

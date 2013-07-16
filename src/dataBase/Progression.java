@@ -14,6 +14,8 @@ public class Progression {
     private String progressionName;
     private int progressionStatus;    // 1 - trwa / 2 - zakonczona
     
+    public Progression(){}
+    
     public Progression(int progressionId, String progressionName)
     {
         this.progressionId = progressionId;

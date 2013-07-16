@@ -307,11 +307,6 @@ public class DataFromDB {
     {
         return resolvedProgressions;
     }
-    
-    public LinkedList<Progression> getResolvedProgressions() 
-    {
-        return resolvedProgressions;
-    }
 
     public LinkedList<Bet> getWonBetsNotInProg() 
     {

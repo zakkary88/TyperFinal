@@ -419,6 +419,8 @@ public class NewBet extends javax.swing.JPanel {
             //aktywne zaklady nie w progresji
             DataContainer.listModelActiveNotInProg.addElement(bet);           
         }
+        
+        DataContainer.updateLists();
     }//GEN-LAST:event_jButtonAddBetActionPerformed
 
     private void jCheckBoxProgressionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxProgressionActionPerformed

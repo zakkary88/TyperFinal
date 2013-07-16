@@ -329,12 +329,14 @@ public class EditBet extends javax.swing.JPanel {
         //load zalezy od wybranej listy 
         if(DataContainer.listName.equals("Active bets in progressions")
                || DataContainer.listName.equals("Won bets in progressions")
-               || DataContainer.listName.equals("Lost bets in progressions"))
+               || DataContainer.listName.equals("Lost bets in progressions")
+               || DataContainer.listName.equals("Resolved bets in progressions"))
              loadDataFromDBforBetInProg();
               
         if(DataContainer.listName.equals("Active bets not in progressions")
                 || DataContainer.listName.equals("Won bets not in progressions")
-                || DataContainer.listName.equals("Lost bets not in progressions"))
+                || DataContainer.listName.equals("Lost bets not in progressions")
+                || DataContainer.listName.equals("Resolved bets not in progressions"))
             loadDataFromDBforBet();
     }
     
@@ -367,8 +369,8 @@ public class EditBet extends javax.swing.JPanel {
         jTextFieldProgressionName.setEnabled(false);
         jComboBoxExistingProgression.setEnabled(true);
         
-
-        jComboBoxExistingProgression.setModel(DataContainer.comboBoxmodelProgressions);  
+        //na liste wczytywane sa wszystkie progresje - lacznie z zakonczonymi
+        jComboBoxExistingProgression.setModel(DataContainer.comboBoxModelAllProgressions);  
         fillComboBoxBukmacher();
         fillComboBoxType();
         calendar.fillComboBoxDateTime();
@@ -413,7 +415,7 @@ public class EditBet extends javax.swing.JPanel {
         jTextAreaNote.setText(betNotInProg.getNote());
         
         String type = betNotInProg.getType();
-        jComboBoxType.setSelectedItem(type.toLowerCase());        //TODO sprawdzic OTHER - other
+        jComboBoxType.setSelectedItem(type.toLowerCase());
         
         status = betNotInProg.getBetStatus();
         selectStatus(status);       
@@ -439,7 +441,7 @@ public class EditBet extends javax.swing.JPanel {
         jTextAreaNote.setText(betInProg.getNote());
         
         String type = betInProg.getType();
-        jComboBoxType.setSelectedItem(type.toLowerCase());        //TODO sprawdzic OTHER - other
+        jComboBoxType.setSelectedItem(type.toLowerCase()); 
         
         status = betInProg.getBetStatus();
         selectStatus(status);
