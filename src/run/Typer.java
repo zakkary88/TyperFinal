@@ -9,6 +9,7 @@ import dataBase.BetsManager;
 import dataBase.ChartsManager;
 import dataBase.DataContainer;
 import dataBase.DataFromDB;
+import parser.MatchOdds;
 import progressivebooker.ProgressiveBooker;
 
 
@@ -25,6 +26,8 @@ public class Typer extends javax.swing.JFrame {
     private ProgressiveBooker progressiveBooker = null;
     private ChartsManager chartsManager = null;
     
+    private MatchOdds matchOdds = null;
+    
     public Typer() {
         initComponents();
         
@@ -37,11 +40,13 @@ public class Typer extends javax.swing.JFrame {
         chartsManager = new ChartsManager();
         coverBooker = new CoverBooker();
         progressiveBooker = new ProgressiveBooker();
+        matchOdds = new MatchOdds();
                
         jTabbedPaneMenu.addTab("Bets Manager", betsManager);
         jTabbedPaneMenu.addTab("Charts", chartsManager);
         jTabbedPaneMenu.addTab("Progression Simulator", progressiveBooker);
         jTabbedPaneMenu.addTab("Cover Booker Calculator", coverBooker);
+        jTabbedPaneMenu.addTab("Match Odds", matchOdds);
     }
     
 
