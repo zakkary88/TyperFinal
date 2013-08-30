@@ -285,12 +285,8 @@ public class QueryManager {
     private static final String viewResolvedProgressionBalanceQuery = "SELECT SUM(b.Balance) "
             + "FROM Bets b JOIN Progressions p ON b.PartOfProgression = p.ProgressionId "
             + "WHERE p.ProgressionId = ?";  
-//    private static final String viewProgressionInfoQuery = 
-//           "SELECT b.BetName, b.Date, b.Odd, b.Stake, b.Bukmacher, b.Type, b.Balance, p.ProgressionName "
-//            + "FROM Bets b JOIN Progressions p ON b.PartOfProgression = p.ProgressionId "
-//            + "WHERE p.ProgressionId = ?";
     private static final String viewProgressionInfoQuery = 
-           "SELECT b.BetName "
+           "SELECT b.BetName, b.Date, b.Odd, b.Stake, b.Bukmacher, b.Type, b.Balance, p.ProgressionName "
             + "FROM Bets b JOIN Progressions p ON b.PartOfProgression = p.ProgressionId "
             + "WHERE p.ProgressionId = ?";
     
@@ -2239,12 +2235,10 @@ public class QueryManager {
             while(resultSet.next())
             {
                 //SELECT b.BetName, b.Date, b.Odd, b.Stake, b.Bukmacher, b.Type, b.Balance, p.ProgressionName "
-//                info += "\nBet name: " + resultSet.getString(1) + "\tDate: " + resultSet.getString(2)
-//                        + "\tBalance: " + resultSet.getDouble(7) + "\tBukmacher: " + resultSet.getString(5)
-//                        + "\tOdd: " + resultSet.getDouble(3) + "\tStake: " + resultSet.getDouble(4)
-//                        + "\tType: " + resultSet.getString(6);
-                info += "\nBet name: " + resultSet.getString(1);
-                System.out.println("linia");
+                info += "\nBet name: " + resultSet.getString(1) + "\tDate: " + resultSet.getString(2)
+                        + "\tBalance: " + resultSet.getDouble(7) + "\tBukmacher: " + resultSet.getString(5)
+                        + "\tOdd: " + resultSet.getDouble(3) + "\tStake: " + resultSet.getDouble(4)
+                        + "\tType: " + resultSet.getString(6);            
             }
             
             resultSet.close();

@@ -35,11 +35,18 @@ public class EditProgression extends javax.swing.JPanel {
         Progression prog = DataContainer.dataFromDB.getQueryManager().getProgression(DataContainer.id);
         jTextFieldProgName.setText(prog.getProgressionName());
         
-        String info = DataContainer.dataFromDB.getQueryManager().viewProgressionInfo(DataContainer.id);
-        double balance = DataContainer.dataFromDB.getQueryManager().viewResolvedProgressionBalance(DataContainer.id);
-        jTextAreaProgInfo.setText(Double.toString(balance));
+        //String info = DataContainer.dataFromDB.getQueryManager().viewProgressionInfo(DataContainer.id);
+        //double balance = DataContainer.dataFromDB.getQueryManager().viewResolvedProgressionBalance(DataContainer.id);
+        jTextAreaProgInfo.setText(getProgressionInfoForTextArea(prog));
     
         setStatus(prog);
+    }
+    
+    private String getProgressionInfoForTextArea(Progression prog)
+    {
+        String info = DataContainer.dataFromDB.viewProgressionInfo(prog);
+        info += DataContainer.dataFromDB.viewProgressionBallance(prog);
+        return info;
     }
     
     private void setStatus(Progression prog)

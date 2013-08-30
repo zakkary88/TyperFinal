@@ -4,7 +4,9 @@
  */
 package dataBase;
 
+import java.text.NumberFormat;
 import java.util.LinkedList;
+import java.util.List;
 
 /**
  *
@@ -34,16 +36,18 @@ public class DataFromDB {
     private LinkedList<BetInProgression> lostBetsInProg = new LinkedList<BetInProgression>();
     
     private LinkedList<String> dates = new LinkedList<String>();
-    
-    private double resolvedProgressionBalance = 0.0;
-    
+      
     //polaczenie
     private ConnectionManager connectionManager = new ConnectionManager();
     private QueryManager queryManager = new QueryManager(connectionManager.getConnection());
     
+    NumberFormat nf = NumberFormat.getInstance();
+    
     public DataFromDB()
     {
         fillLists();
+        nf.setMaximumFractionDigits(2);
+        nf.setMinimumFractionDigits(2);
     }
     
     public void fillLists()
@@ -90,6 +94,61 @@ public class DataFromDB {
         
         wonBetsNotInProg.clear();
         lostBetsNotInProg.clear();
+    }
+    
+     private LinkedList<BetInProgression> getBetsForProgression(Progression progression)
+    {
+        int progID = progression.getProgressionId();
+        LinkedList<BetInProgression> betsInProgression = new LinkedList<BetInProgression>();       
+        
+        for(int i=0; i<resolvedBetsInProg.size(); i++)
+        {
+            if(resolvedBetsInProg.get(i).getPartOfProgression() == progID)
+                betsInProgression.add(resolvedBetsInProg.get(i));
+        }
+        
+        for(int i=0; i<betsInProg.size(); i++)
+        {
+            if(betsInProg.get(i).getPartOfProgression() == progID)
+                betsInProgression.add(betsInProg.get(i));
+        }
+        
+        return betsInProgression;
+    }
+    
+    public String viewProgressionInfo(Progression progression)
+    {      
+        String progName = progression.getProgressionName();
+        String info = "";
+        
+        LinkedList<BetInProgression> betsInProgression = getBetsForProgression(progression);
+        BetInProgression bip = null;
+        
+        info += progName;
+        for(int i=0; i<betsInProgression.size(); i++)
+        {
+            bip = betsInProgression.get(i);
+            info += "\nBet name: " + bip.getBetName() + "\tBalance: " + bip.getBalance()
+                    + "\tDate: " + bip.getDate() + "\tOdd: " + bip.getOdd() 
+                    + "\tStake: " + bip.getStake() + "\tType: " + bip.getType() 
+                    + "\tBukmacher: " + bip.getBukmacher();
+        }      
+        
+        return info;
+    }
+    
+    public String viewProgressionBallance(Progression progression)
+    {
+        List<BetInProgression> betsInProgression = getBetsForProgression(progression);
+        String info = "";
+        double balance = 0.0;
+        
+        for(int i=0; i< betsInProgression.size(); i++)
+            balance += betsInProgression.get(i).getBalance();
+        
+        String balanceString = nf.format(balance);
+        info += "\nProgression balance: " + balanceString;
+        return info;
     }
     
     //zrzutuje wszystkie zaklady w gore do Bet (niewazne, na tej liscie nie wyswietla sie info)
@@ -326,11 +385,6 @@ public class DataFromDB {
     public LinkedList<BetInProgression> getLostBetsInProg() 
     {
         return lostBetsInProg;
-    }
-
-    public double getResolvedProgressionBalance() 
-    {
-        return resolvedProgressionBalance;
     }
     
     public QueryManager getQueryManager() 

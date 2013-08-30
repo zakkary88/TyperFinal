@@ -66,6 +66,7 @@ public class EditBet extends javax.swing.JPanel {
         jLabelNewProgressionName = new javax.swing.JLabel();
         jComboBoxExistingProgression = new javax.swing.JComboBox();
         jTextFieldProgressionName = new javax.swing.JTextField();
+        jLabelProgressionBalance = new javax.swing.JLabel();
         jRadioButtonWon = new javax.swing.JRadioButton();
         jRadioButtonLost = new javax.swing.JRadioButton();
         jRadioButtonUnresolved = new javax.swing.JRadioButton();
@@ -124,6 +125,14 @@ public class EditBet extends javax.swing.JPanel {
 
         jLabelNewProgressionName.setText("jLabel1");
 
+        jComboBoxExistingProgression.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxExistingProgressionActionPerformed(evt);
+            }
+        });
+
+        jLabelProgressionBalance.setText("jLabel1");
+
         javax.swing.GroupLayout jPanelProgressionLayout = new javax.swing.GroupLayout(jPanelProgression);
         jPanelProgression.setLayout(jPanelProgressionLayout);
         jPanelProgressionLayout.setHorizontalGroup(
@@ -144,6 +153,10 @@ public class EditBet extends javax.swing.JPanel {
                         .addGap(40, 40, 40)
                         .addComponent(jLabelNewProgressionName)))
                 .addContainerGap(48, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanelProgressionLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabelProgressionBalance)
+                .addContainerGap(233, Short.MAX_VALUE))
         );
         jPanelProgressionLayout.setVerticalGroup(
             jPanelProgressionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -158,7 +171,8 @@ public class EditBet extends javax.swing.JPanel {
                 .addComponent(jRadioButtonExistingProgression)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jComboBoxExistingProgression, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addComponent(jLabelProgressionBalance))
         );
 
         buttonGroupStatus.add(jRadioButtonWon);
@@ -259,7 +273,7 @@ public class EditBet extends javax.swing.JPanel {
                 .addComponent(jRadioButtonLost)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jRadioButtonUnresolved)
-                .addContainerGap(175, Short.MAX_VALUE))
+                .addContainerGap(186, Short.MAX_VALUE))
             .addGroup(jPanelEditBetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanelEditBetLayout.createSequentialGroup()
                     .addContainerGap()
@@ -283,7 +297,7 @@ public class EditBet extends javax.swing.JPanel {
                     .addGroup(jPanelEditBetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabelType)
                         .addComponent(jComboBoxType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                     .addGroup(jPanelEditBetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabelOdd, javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jTextFieldOdd, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -302,8 +316,7 @@ public class EditBet extends javax.swing.JPanel {
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(jCheckBoxProgression)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(jPanelProgression, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap()))
+                    .addComponent(jPanelProgression, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -317,10 +330,10 @@ public class EditBet extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanelEditBet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -354,6 +367,7 @@ public class EditBet extends javax.swing.JPanel {
         jCheckBoxProgression.setText("is part of progression");
         jPanelProgression.setVisible(false);
         jButtonSaveChanges.setText("Save changes");
+        jLabelProgressionBalance.setText("");
         
         jRadioButtonWon.setText("Won");
         jRadioButtonLost.setText("Lost");
@@ -370,7 +384,8 @@ public class EditBet extends javax.swing.JPanel {
         jComboBoxExistingProgression.setEnabled(true);
         
         //na liste wczytywane sa wszystkie progresje - lacznie z zakonczonymi
-        jComboBoxExistingProgression.setModel(DataContainer.comboBoxModelAllProgressions);  
+        jComboBoxExistingProgression.setModel(DataContainer.comboBoxModelAllProgressions); 
+        viewProgressionBalanceInLabel();
         fillComboBoxBukmacher();
         fillComboBoxType();
         calendar.fillComboBoxDateTime();
@@ -450,10 +465,22 @@ public class EditBet extends javax.swing.JPanel {
         jCheckBoxProgression.setSelected(true);
         jPanelProgression.setVisible(true);
         jRadioButtonExistingProgression.setSelected(true);      
-        int progressionId = betInProg.getPartOfProgression();  //to samo, co ponizej
-        //progressionId = betInProg.getProgression().getProgressionId();
-        int progIndex = DataContainer.dataFromDB.getProgressionsIndexById(progressionId);
+        int progressionId = betInProg.getPartOfProgression(); 
+        int progIndex = getProgressionIndex(progressionId);
+              
         jComboBoxExistingProgression.setSelectedIndex(progIndex);
+    }
+    
+    private int getProgressionIndex(int progressionId)
+    {
+        int progIndex = 0;
+        for(int i=0; i<DataContainer.comboBoxModelAllProgressions.getSize(); i++)
+        {
+            Progression prog = (Progression) DataContainer.comboBoxModelAllProgressions.getElementAt(i);
+            if(prog.getProgressionId() == progressionId)
+                   progIndex = i;
+        }
+        return progIndex;
     }
     
     private void selectData(String date)
@@ -515,9 +542,7 @@ public class EditBet extends javax.swing.JPanel {
                 return i;
         }
         return -1;
-    }
-   
-   
+    }   
    
    private int setProgressionStatus(int status)
    {
@@ -530,6 +555,13 @@ public class EditBet extends javax.swing.JPanel {
            result = 2;
        
        return result;
+   }
+   
+   private void viewProgressionBalanceInLabel()
+   {
+        Progression prog = (Progression) jComboBoxExistingProgression.getSelectedItem();
+        String progressionBalance = DataContainer.dataFromDB.viewProgressionBallance(prog);
+        jLabelProgressionBalance.setText(progressionBalance);
    }
     
     private void jButtonSaveChangesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveChangesActionPerformed
@@ -630,6 +662,7 @@ public class EditBet extends javax.swing.JPanel {
         {
             jTextFieldProgressionName.setEnabled(true);
             jComboBoxExistingProgression.setEnabled(false);
+            jLabelProgressionBalance.setText("");
         }
         else
         {
@@ -644,6 +677,7 @@ public class EditBet extends javax.swing.JPanel {
         {
             jTextFieldProgressionName.setEnabled(false);
             jComboBoxExistingProgression.setEnabled(true);
+            viewProgressionBalanceInLabel();
         }
         else
         {
@@ -667,6 +701,11 @@ public class EditBet extends javax.swing.JPanel {
         status = 1;
     }//GEN-LAST:event_jRadioButtonUnresolvedActionPerformed
 
+    private void jComboBoxExistingProgressionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxExistingProgressionActionPerformed
+        
+        viewProgressionBalanceInLabel();
+    }//GEN-LAST:event_jComboBoxExistingProgressionActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroupProgression;
     private javax.swing.ButtonGroup buttonGroupStatus;
@@ -686,6 +725,7 @@ public class EditBet extends javax.swing.JPanel {
     private javax.swing.JLabel jLabelNewProgressionName;
     private javax.swing.JLabel jLabelNote;
     private javax.swing.JLabel jLabelOdd;
+    private javax.swing.JLabel jLabelProgressionBalance;
     private javax.swing.JLabel jLabelStake;
     private javax.swing.JLabel jLabelTime;
     private javax.swing.JLabel jLabelTitle;
