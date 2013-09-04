@@ -6,6 +6,8 @@ package dataBase;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
+import javax.swing.JComboBox;
+import javax.swing.JList;
 
 /**
  *
@@ -18,6 +20,8 @@ public class DataContainer {
     public static int id = 0;
     public static Object object = null;
     public static String listName = "";
+    
+    //private static DefaultListModel filteredBets = new DefaultListModel();
         
     public static DefaultListModel listModelAllActive = new DefaultListModel();
     public static DefaultListModel listModelActiveNotInProg = new DefaultListModel();
@@ -40,28 +44,7 @@ public class DataContainer {
     public static DefaultComboBoxModel comboBoxModelProgressions = new DefaultComboBoxModel();
     public static DefaultComboBoxModel comboBoxModelAllProgressions = new DefaultComboBoxModel();
     public static DefaultComboBoxModel comboBoxModelDate = new DefaultComboBoxModel();
-    
-    public static void fillActiveProgressionsCombo()
-    {
-        for(Progression p : dataFromDB.getProgressions())
-            comboBoxModelProgressions.addElement(p);
-    }
-    
-    public static void fillAllProgressionsCombo()
-    {
-        for(Progression p : dataFromDB.getResolvedPregressions())
-            comboBoxModelAllProgressions.addElement(p);
-        
-        for(Progression p : dataFromDB.getProgressions())
-            comboBoxModelAllProgressions.addElement(p);
-    }
-    
-    public static void fillDateCombo()
-    {
-        for(String s : dataFromDB.getDates())
-            comboBoxModelDate.addElement(s);
-    }
-    
+       
     public static void updateLists()
     {
             DataContainer.clearAllListsModels();
@@ -72,6 +55,8 @@ public class DataContainer {
     
     public static void clearAllListsModels()
     {
+        //filteredBets.clear();
+        
         comboBoxModelProgressions.removeAllElements();
         comboBoxModelDate.removeAllElements();
         comboBoxModelAllProgressions.removeAllElements();
@@ -93,6 +78,65 @@ public class DataContainer {
         listModelWonBetsNotInProg.clear();
         listModelLostBetsInProg.clear();
         listModelLostBetsNotInProg.clear();
+    }
+    
+//    private static String getYearWithMonth(String date)
+//    {
+//        String month = "";
+//        String year = "";
+//        String [] split = date.split("-");
+//        month = split[1];
+//        year = split[0];
+//        return year + "-" + month;
+//    }
+//    
+//    public static void filterBets(DefaultListModel modelToFilter, JComboBox jComboBoxDate)
+//    {
+//        filteredBets.removeAllElements();
+//        
+//        for(int i=0; i<modelToFilter.size(); i++)
+//        {
+//            Bet bet = (Bet) modelToFilter.get(i);
+//            String date = getYearWithMonth(bet.getDate());
+//                    
+//            if(date.equals(jComboBoxDate.getSelectedItem().toString()))
+//                filteredBets.addElement(bet);
+//        }
+//    }
+//    
+//    public static void filterBetsInProg(DefaultListModel modelToFilter, JComboBox jComboBoxDate)
+//    {
+//        filteredBets.removeAllElements();
+//        
+//        for(int i=0; i<modelToFilter.size(); i++)
+//        {
+//            BetInProgression bip = (BetInProgression) modelToFilter.get(i);
+//            String date = getYearWithMonth(bip.getDate());
+//            
+//            if(date.equals(jComboBoxDate.getSelectedItem().toString()))
+//                filteredBets.addElement(bip);           
+//        }
+//    }
+    
+    public static void fillActiveProgressionsCombo()
+    {
+        for(Progression p : dataFromDB.getProgressions())
+            comboBoxModelProgressions.addElement(p);
+    }
+    
+    public static void fillAllProgressionsCombo()
+    {
+        for(Progression p : dataFromDB.getResolvedPregressions())
+            comboBoxModelAllProgressions.addElement(p);
+        
+        for(Progression p : dataFromDB.getProgressions())
+            comboBoxModelAllProgressions.addElement(p);
+    }
+    
+    public static void fillDateCombo()
+    {
+        for(String s : dataFromDB.getDates())
+            comboBoxModelDate.addElement(s);
     }
     
     public static void fillAllActiveBetsList()

@@ -71,7 +71,7 @@ public class DataFromDB {
         queryManager.viewWonBetsInProgression(wonBetsInProg);
         queryManager.viewLostBetsInProgression(lostBetsInProg);
         
-        queryManager.viewYearsMonths(getDates());
+        queryManager.viewYearsMonths(dates);
     }
     
     public void clearAllLists()
@@ -94,9 +94,11 @@ public class DataFromDB {
         
         wonBetsNotInProg.clear();
         lostBetsNotInProg.clear();
+        
+        dates.clear();
     }
     
-     private LinkedList<BetInProgression> getBetsForProgression(Progression progression)
+    private LinkedList<BetInProgression> getBetsForProgression(Progression progression)
     {
         int progID = progression.getProgressionId();
         LinkedList<BetInProgression> betsInProgression = new LinkedList<BetInProgression>();       
@@ -121,17 +123,20 @@ public class DataFromDB {
         String progName = progression.getProgressionName();
         String info = "";
         
-        LinkedList<BetInProgression> betsInProgression = getBetsForProgression(progression);
-        BetInProgression bip = null;
-        
-        info += progName;
-        for(int i=0; i<betsInProgression.size(); i++)
+        if(getBetsForProgression(progression) != null)
         {
-            bip = betsInProgression.get(i);
-            info += "\nBet name: " + bip.getBetName() + "\tBalance: " + bip.getBalance()
-                    + "\tDate: " + bip.getDate() + "\tOdd: " + bip.getOdd() 
-                    + "\tStake: " + bip.getStake() + "\tType: " + bip.getType() 
-                    + "\tBukmacher: " + bip.getBukmacher();
+            LinkedList<BetInProgression> betsInProgression = getBetsForProgression(progression);
+            BetInProgression bip = null;
+
+            info += progName;
+            for(int i=0; i<betsInProgression.size(); i++)
+            {
+                bip = betsInProgression.get(i);
+                info += "\nBet name: " + bip.getBetName() + "\tBalance: " + bip.getBalance()
+                        + "\tDate: " + bip.getDate() + "\tOdd: " + bip.getOdd() 
+                        + "\tStake: " + bip.getStake() + "\tType: " + bip.getType() 
+                        + "\tBukmacher: " + bip.getBukmacher();
+            }
         }      
         
         return info;
@@ -139,15 +144,19 @@ public class DataFromDB {
     
     public String viewProgressionBallance(Progression progression)
     {
-        List<BetInProgression> betsInProgression = getBetsForProgression(progression);
         String info = "";
-        double balance = 0.0;
-        
-        for(int i=0; i< betsInProgression.size(); i++)
-            balance += betsInProgression.get(i).getBalance();
-        
-        String balanceString = nf.format(balance);
-        info += "\nProgression balance: " + balanceString;
+        if(getBetsForProgression(progression) != null)
+        {
+            List<BetInProgression> betsInProgression = getBetsForProgression(progression);
+
+            double balance = 0.0;
+
+            for(int i=0; i< betsInProgression.size(); i++)
+                balance += betsInProgression.get(i).getBalance();
+
+            String balanceString = nf.format(balance);
+            info += "\nProgression balance: " + balanceString;
+        }
         return info;
     }
     

@@ -311,7 +311,7 @@ public class QueryManager {
     
     //zapytania dotyczące daty
     private static final String viewTodayBetsQuery = "SELECT * FROM Bets WHERE "
-            + "SUBSTR(Date,0,11) LIKE date()";   
+            + "SUBSTR(Date,0,11) LIKE date() AND Status = 1";   
     private static final String viewEndedBetsToUpdateQuery = "SELECT * FROM Bets "
             + "WHERE SUBSTR(Date,0,11) < date() AND Status  = 1 AND "
             + "PartOfProgression = 0";         

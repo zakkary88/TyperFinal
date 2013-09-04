@@ -27,6 +27,7 @@ public class DeleteProgression extends javax.swing.JPanel {
         jRadioButtonDeleteOnlyProg.setText("Delete progression and make "
                 + "included bets - bets not in progression");
         jRadioButtonDeleteAll.setSelected(true);
+        jLabelInformation.setText("Choose deletion option.");
     }
 
     /**
@@ -42,6 +43,7 @@ public class DeleteProgression extends javax.swing.JPanel {
         jButtonDelete = new javax.swing.JButton();
         jRadioButtonDeleteAll = new javax.swing.JRadioButton();
         jRadioButtonDeleteOnlyProg = new javax.swing.JRadioButton();
+        jLabelInformation = new javax.swing.JLabel();
 
         jButtonDelete.setText("jButton1");
         jButtonDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -66,6 +68,8 @@ public class DeleteProgression extends javax.swing.JPanel {
             }
         });
 
+        jLabelInformation.setText("jLabel1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -73,26 +77,30 @@ public class DeleteProgression extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabelInformation)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
                         .addComponent(jButtonDelete))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButtonDeleteAll)
-                            .addComponent(jRadioButtonDeleteOnlyProg))
-                        .addGap(0, 116, Short.MAX_VALUE)))
+                            .addComponent(jRadioButtonDeleteOnlyProg)
+                            .addComponent(jRadioButtonDeleteAll))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jRadioButtonDeleteAll)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButtonDeleteOnlyProg)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                .addComponent(jButtonDelete)
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButtonDelete)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jRadioButtonDeleteAll)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButtonDeleteOnlyProg)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabelInformation)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -115,11 +123,13 @@ public class DeleteProgression extends javax.swing.JPanel {
             DataContainer.dataFromDB.getQueryManager().deleteProgMakeBetsNotInProg(DataContainer.id);
         
         DataContainer.updateLists();
+        jLabelInformation.setText("Progression deleted.");
     }//GEN-LAST:event_jButtonDeleteActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroupDelete;
     private javax.swing.JButton jButtonDelete;
+    private javax.swing.JLabel jLabelInformation;
     private javax.swing.JRadioButton jRadioButtonDeleteAll;
     private javax.swing.JRadioButton jRadioButtonDeleteOnlyProg;
     // End of variables declaration//GEN-END:variables

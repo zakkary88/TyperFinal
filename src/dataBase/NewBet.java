@@ -30,29 +30,7 @@ public class NewBet extends javax.swing.JPanel {
 
         buttonGroupProgression = new javax.swing.ButtonGroup();
         jPanelNewBet = new javax.swing.JPanel();
-        jTextFieldOdd = new javax.swing.JTextField();
-        jLabelTime = new javax.swing.JLabel();
-        jComboBoxMinute = new javax.swing.JComboBox();
-        jLabelBetName = new javax.swing.JLabel();
-        jLabelNote = new javax.swing.JLabel();
         jButtonAddBet = new javax.swing.JButton();
-        jLabelBukmacher = new javax.swing.JLabel();
-        jLabelDate = new javax.swing.JLabel();
-        jTextFieldBetName = new javax.swing.JTextField();
-        jComboBoxMonth = new javax.swing.JComboBox();
-        jCheckBoxProgression = new javax.swing.JCheckBox();
-        jTextFieldStake = new javax.swing.JTextField();
-        jLabelType = new javax.swing.JLabel();
-        jComboBoxBukmacher = new javax.swing.JComboBox();
-        jComboBoxYear = new javax.swing.JComboBox();
-        jLabelStake = new javax.swing.JLabel();
-        jComboBoxType = new javax.swing.JComboBox();
-        jComboBoxDay = new javax.swing.JComboBox();
-        jLabelOdd = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextAreaNote = new javax.swing.JTextArea();
-        jComboBoxHour = new javax.swing.JComboBox();
-        jLabelTitle = new javax.swing.JLabel();
         jPanelProgression = new javax.swing.JPanel();
         jRadioButtonNewProgression = new javax.swing.JRadioButton();
         jRadioButtonExistingProgression = new javax.swing.JRadioButton();
@@ -60,12 +38,29 @@ public class NewBet extends javax.swing.JPanel {
         jComboBoxExistingProgression = new javax.swing.JComboBox();
         jTextFieldProgressionName = new javax.swing.JTextField();
         jLabelProgressionBalance = new javax.swing.JLabel();
-
-        jLabelTime.setText("jLabel1");
-
-        jLabelBetName.setText("jLabel1");
-
-        jLabelNote.setText("jLabel1");
+        jPanelInput = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextAreaNote = new javax.swing.JTextArea();
+        jComboBoxMonth = new javax.swing.JComboBox();
+        jLabelBetName = new javax.swing.JLabel();
+        jComboBoxMinute = new javax.swing.JComboBox();
+        jComboBoxYear = new javax.swing.JComboBox();
+        jTextFieldStake = new javax.swing.JTextField();
+        jLabelTitle = new javax.swing.JLabel();
+        jComboBoxHour = new javax.swing.JComboBox();
+        jLabelBukmacher = new javax.swing.JLabel();
+        jLabelStake = new javax.swing.JLabel();
+        jComboBoxDay = new javax.swing.JComboBox();
+        jLabelTime = new javax.swing.JLabel();
+        jTextFieldOdd = new javax.swing.JTextField();
+        jLabelOdd = new javax.swing.JLabel();
+        jComboBoxBukmacher = new javax.swing.JComboBox();
+        jLabelType = new javax.swing.JLabel();
+        jLabelNote = new javax.swing.JLabel();
+        jLabelDate = new javax.swing.JLabel();
+        jTextFieldBetName = new javax.swing.JTextField();
+        jComboBoxType = new javax.swing.JComboBox();
+        jCheckBoxProgression = new javax.swing.JCheckBox();
 
         jButtonAddBet.setText("jButton1");
         jButtonAddBet.addActionListener(new java.awt.event.ActionListener() {
@@ -73,29 +68,6 @@ public class NewBet extends javax.swing.JPanel {
                 jButtonAddBetActionPerformed(evt);
             }
         });
-
-        jLabelBukmacher.setText("jLabel1");
-
-        jLabelDate.setText("jLabel1");
-
-        jCheckBoxProgression.setText("jCheckBox1");
-        jCheckBoxProgression.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBoxProgressionActionPerformed(evt);
-            }
-        });
-
-        jLabelType.setText("jLabel1");
-
-        jLabelStake.setText("jLabel1");
-
-        jLabelOdd.setText("jLabel1");
-
-        jTextAreaNote.setColumns(20);
-        jTextAreaNote.setRows(5);
-        jScrollPane1.setViewportView(jTextAreaNote);
-
-        jLabelTitle.setText("jLabel1");
 
         jRadioButtonNewProgression.setText("jRadioButton1");
         jRadioButtonNewProgression.addActionListener(new java.awt.event.ActionListener() {
@@ -163,112 +135,160 @@ public class NewBet extends javax.swing.JPanel {
                 .addComponent(jLabelProgressionBalance))
         );
 
+        jTextAreaNote.setColumns(20);
+        jTextAreaNote.setRows(5);
+        jScrollPane1.setViewportView(jTextAreaNote);
+
+        jLabelBetName.setText("jLabel1");
+
+        jLabelTitle.setText("jLabel1");
+
+        jLabelBukmacher.setText("jLabel1");
+
+        jLabelStake.setText("jLabel1");
+
+        jLabelTime.setText("jLabel1");
+
+        jLabelOdd.setText("jLabel1");
+
+        jLabelType.setText("jLabel1");
+
+        jLabelNote.setText("jLabel1");
+
+        jLabelDate.setText("jLabel1");
+
+        jCheckBoxProgression.setText("jCheckBox1");
+        jCheckBoxProgression.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxProgressionActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelInputLayout = new javax.swing.GroupLayout(jPanelInput);
+        jPanelInput.setLayout(jPanelInputLayout);
+        jPanelInputLayout.setHorizontalGroup(
+            jPanelInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelInputLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanelInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelTitle)
+                    .addGroup(jPanelInputLayout.createSequentialGroup()
+                        .addGroup(jPanelInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelBetName)
+                            .addComponent(jLabelDate)
+                            .addComponent(jLabelTime)
+                            .addComponent(jLabelType))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanelInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanelInputLayout.createSequentialGroup()
+                                .addComponent(jComboBoxHour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jComboBoxMinute, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanelInputLayout.createSequentialGroup()
+                                .addComponent(jComboBoxDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jComboBoxMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jComboBoxYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jComboBoxType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldBetName)))
+                    .addComponent(jCheckBoxProgression))
+                .addGap(74, 74, 74))
+            .addGroup(jPanelInputLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelInputLayout.createSequentialGroup()
+                        .addComponent(jLabelNote)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1))
+                    .addGroup(jPanelInputLayout.createSequentialGroup()
+                        .addGroup(jPanelInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelInputLayout.createSequentialGroup()
+                                .addComponent(jLabelOdd)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTextFieldOdd, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanelInputLayout.createSequentialGroup()
+                                .addComponent(jLabelStake)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTextFieldStake, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanelInputLayout.createSequentialGroup()
+                                .addComponent(jLabelBukmacher)
+                                .addGap(18, 18, 18)
+                                .addComponent(jComboBoxBukmacher, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanelInputLayout.setVerticalGroup(
+            jPanelInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelInputLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabelTitle)
+                .addGap(18, 18, 18)
+                .addGroup(jPanelInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelBetName)
+                    .addComponent(jTextFieldBetName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelDate)
+                    .addComponent(jComboBoxDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBoxMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBoxYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanelInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelTime)
+                    .addComponent(jComboBoxHour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBoxMinute, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15)
+                .addGroup(jPanelInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelType)
+                    .addComponent(jComboBoxType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanelInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelOdd)
+                    .addComponent(jTextFieldOdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanelInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelStake)
+                    .addComponent(jTextFieldStake, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanelInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelBukmacher)
+                    .addComponent(jComboBoxBukmacher, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanelInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelNote)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jCheckBoxProgression)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jPanelNewBetLayout = new javax.swing.GroupLayout(jPanelNewBet);
         jPanelNewBet.setLayout(jPanelNewBetLayout);
         jPanelNewBetLayout.setHorizontalGroup(
             jPanelNewBetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelNewBetLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanelNewBetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelTitle)
-                    .addGroup(jPanelNewBetLayout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addGroup(jPanelNewBetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanelNewBetLayout.createSequentialGroup()
-                                .addGroup(jPanelNewBetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelBetName)
-                                    .addComponent(jLabelOdd)
-                                    .addComponent(jLabelStake)
-                                    .addComponent(jLabelDate)
-                                    .addComponent(jLabelBukmacher)
-                                    .addComponent(jLabelNote)
-                                    .addComponent(jLabelTime)
-                                    .addComponent(jLabelType))
-                                .addGroup(jPanelNewBetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanelNewBetLayout.createSequentialGroup()
-                                        .addGap(44, 44, 44)
-                                        .addGroup(jPanelNewBetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jScrollPane1)
-                                            .addComponent(jComboBoxBukmacher, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addGroup(jPanelNewBetLayout.createSequentialGroup()
-                                        .addGroup(jPanelNewBetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(jPanelNewBetLayout.createSequentialGroup()
-                                                .addGap(44, 44, 44)
-                                                .addGroup(jPanelNewBetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                    .addComponent(jTextFieldOdd)
-                                                    .addComponent(jTextFieldBetName)
-                                                    .addComponent(jTextFieldStake, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                            .addGroup(jPanelNewBetLayout.createSequentialGroup()
-                                                .addGap(18, 18, 18)
-                                                .addGroup(jPanelNewBetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addGroup(jPanelNewBetLayout.createSequentialGroup()
-                                                        .addComponent(jComboBoxHour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(jComboBoxMinute, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                    .addGroup(jPanelNewBetLayout.createSequentialGroup()
-                                                        .addComponent(jComboBoxDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(jComboBoxMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(jComboBoxYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                    .addComponent(jComboBoxType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
-                                        .addComponent(jButtonAddBet, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addComponent(jCheckBoxProgression)))
-                    .addGroup(jPanelNewBetLayout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addComponent(jPanelProgression, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(jPanelInput, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonAddBet, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22))
+            .addGroup(jPanelNewBetLayout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addComponent(jPanelProgression, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanelNewBetLayout.setVerticalGroup(
             jPanelNewBetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelNewBetLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanelNewBetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelNewBetLayout.createSequentialGroup()
-                        .addComponent(jLabelTitle)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanelNewBetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabelBetName)
-                            .addComponent(jTextFieldBetName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanelNewBetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabelDate)
-                            .addComponent(jComboBoxDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBoxMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBoxYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanelNewBetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabelTime)
-                            .addComponent(jComboBoxHour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBoxMinute, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanelNewBetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabelType)
-                            .addComponent(jComboBoxType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap()
+                        .addComponent(jPanelInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelNewBetLayout.createSequentialGroup()
-                        .addGap(35, 35, 35)
+                        .addGap(52, 52, 52)
                         .addComponent(jButtonAddBet, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanelNewBetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelOdd, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextFieldOdd, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanelNewBetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelStake, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextFieldStake, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanelNewBetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelBukmacher, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jComboBoxBukmacher, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelNewBetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelNote))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCheckBoxProgression)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanelProgression, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -277,16 +297,14 @@ public class NewBet extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanelNewBet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanelNewBet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanelNewBet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap()
+                .addComponent(jPanelNewBet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(35, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
  
@@ -375,7 +393,7 @@ public class NewBet extends javax.swing.JPanel {
                 
                 //tworzy obiekt, ktory zostanie dodany do listy
                 //id - zaklad zostal dodany, trzeba zliczyc wszystkie zaklady
-                betId = DataContainer.dataFromDB.getQueryManager().countAllBets();
+                betId = DataContainer.dataFromDB.getQueryManager().countAllBets() + 1;
                 progressionId = DataContainer.dataFromDB.getQueryManager().countAllProgressions();
                 BetInProgression betInProg = new BetInProgression(betId, betName, date, odd, stake, 
                         bukmacher, note, type, progressionId , progressionName, 1);
@@ -397,7 +415,7 @@ public class NewBet extends javax.swing.JPanel {
                 //tworzy obiekt, ktory zostanie dodany do listy
                 //betId - zaklad zostal dodany, trzeba zliczyc wszystkie zaklady
                 //progressionId - jak wyzej
-                betId = DataContainer.dataFromDB.getQueryManager().countAllBets();
+                betId = DataContainer.dataFromDB.getQueryManager().countAllBets() + 1;
                 progressionId = DataContainer.dataFromDB.getQueryManager().countAllProgressions();
                 BetInProgression betInProg = new BetInProgression(betId, betName, date, odd, stake, 
                         bukmacher, note, type, progressionId , progressionName, 1);
@@ -421,7 +439,7 @@ public class NewBet extends javax.swing.JPanel {
             DataContainer.dataFromDB.getQueryManager().addBet(betName, date, odd, stake, bukmacher, note, type);
             
             //betId - zaklad zostal dodany, trzeba zliczyc wszystkie zaklady
-            betId = DataContainer.dataFromDB.getQueryManager().countAllBets();
+            betId = DataContainer.dataFromDB.getQueryManager().countAllBets() + 1;
             
             Bet bet = new Bet(betId, betName, date, odd, stake, bukmacher, note, type);
             
@@ -479,9 +497,12 @@ public class NewBet extends javax.swing.JPanel {
 
     private void viewProgressionBalanceInLabel()
     {
-        Progression prog = (Progression) jComboBoxExistingProgression.getSelectedItem();
-        String progressionBalance = DataContainer.dataFromDB.viewProgressionBallance(prog);
-        jLabelProgressionBalance.setText(progressionBalance);
+        if(jComboBoxExistingProgression.getSelectedItem() != null)
+        {
+            Progression prog = (Progression) jComboBoxExistingProgression.getSelectedItem();
+            String progressionBalance = DataContainer.dataFromDB.viewProgressionBallance(prog);
+            jLabelProgressionBalance.setText(progressionBalance);
+        }
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -507,6 +528,7 @@ public class NewBet extends javax.swing.JPanel {
     private javax.swing.JLabel jLabelTime;
     private javax.swing.JLabel jLabelTitle;
     private javax.swing.JLabel jLabelType;
+    private javax.swing.JPanel jPanelInput;
     private javax.swing.JPanel jPanelNewBet;
     private javax.swing.JPanel jPanelProgression;
     private javax.swing.JRadioButton jRadioButtonExistingProgression;

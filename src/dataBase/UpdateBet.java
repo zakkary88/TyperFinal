@@ -34,6 +34,7 @@ public class UpdateBet extends javax.swing.JFrame {
         jRadioButtonLost.setText("Lost");
         jRadioButtonUnresolved.setText("Unresolved");
         jButtonUpdateResult.setText("Confirm");
+        jLabelInformation.setText("Choose event result.");
     }
     
     public void getLists(JList jListEndedBetsToUpdate, JList jListEndedBetsInProgToUpdate,
@@ -60,6 +61,7 @@ public class UpdateBet extends javax.swing.JFrame {
         jRadioButtonLost = new javax.swing.JRadioButton();
         jButtonUpdateResult = new javax.swing.JButton();
         jRadioButtonUnresolved = new javax.swing.JRadioButton();
+        jLabelInformation = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -99,22 +101,29 @@ public class UpdateBet extends javax.swing.JFrame {
             }
         });
 
+        jLabelInformation.setText("jLabel1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButtonWon)
-                            .addComponent(jRadioButtonLost)
-                            .addComponent(jRadioButtonUnresolved))
-                        .addGap(0, 54, Short.MAX_VALUE))
-                    .addComponent(jButtonUpdateResult, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jRadioButtonWon)
+                                    .addComponent(jRadioButtonLost)
+                                    .addComponent(jRadioButtonUnresolved))
+                                .addGap(0, 54, Short.MAX_VALUE))
+                            .addComponent(jButtonUpdateResult, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabelInformation)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -131,7 +140,9 @@ public class UpdateBet extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButtonUpdateResult, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelInformation)
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         pack();
@@ -185,7 +196,8 @@ public class UpdateBet extends javax.swing.JFrame {
                 DataContainer.dataFromDB.getQueryManager().changeBetStatus(status, DataContainer.id);
                 DataContainer.dataFromDB.getQueryManager().commitChanges();
                 
-                System.out.println(status);
+                //System.out.println(status);
+                jLabelInformation.setText("Bet updated.");
             }
         }
             
@@ -240,7 +252,8 @@ public class UpdateBet extends javax.swing.JFrame {
                 if(status == 3)
                     DataContainer.listModelLostBetsInProg.addElement(betInProg);
                 //dialog z zapytaniem czy zakonczyc progresje
-                                  
+                       
+                jLabelInformation.setText("Bet updated.");
                 }
             }           
     }//GEN-LAST:event_jButtonUpdateResultActionPerformed
@@ -295,6 +308,7 @@ public class UpdateBet extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroupResult;
     private javax.swing.JButton jButtonUpdateResult;
+    private javax.swing.JLabel jLabelInformation;
     private javax.swing.JRadioButton jRadioButtonLost;
     private javax.swing.JRadioButton jRadioButtonUnresolved;
     private javax.swing.JRadioButton jRadioButtonWon;

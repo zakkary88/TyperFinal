@@ -5,6 +5,7 @@
 package coverbooker;
 
 import java.text.NumberFormat;
+import java.text.ParseException;
 
 /**
  *
@@ -30,6 +31,8 @@ public class CoverBooker extends javax.swing.JPanel {
         jRadioButtonAwayHome.setText(CoverTypeENUM.Away_Home.toString());
         
         selectedType = CoverTypeENUM.Home_Draw;
+        jLabelInfo.setText("");
+        jRadioButtonHomeDraw.setSelected(true);
     }
 
     /**
@@ -43,56 +46,72 @@ public class CoverBooker extends javax.swing.JPanel {
 
         buttonGroupCoverType = new javax.swing.ButtonGroup();
         jPanelCoverBooker = new javax.swing.JPanel();
-        jTextFieldSecBetAmount = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        jTextFieldDrawPChance = new javax.swing.JTextField();
-        jTextFieldDrawCourse = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        jButtonCalculateMOney = new javax.swing.JButton();
-        jRadioButtonDrawAway = new javax.swing.JRadioButton();
-        jTextFieldAwayPChance = new javax.swing.JTextField();
-        jRadioButtonAwayHome = new javax.swing.JRadioButton();
-        jLabel2 = new javax.swing.JLabel();
-        jTextFieldBestBet = new javax.swing.JTextField();
-        jTextFieldCleanWin = new javax.swing.JTextField();
-        jTextFieldHomeCourse = new javax.swing.JTextField();
+        jLabelInfo = new javax.swing.JLabel();
+        jPanelCoverType = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
-        jTextFieldMainBetAmount = new javax.swing.JTextField();
-        jRadioButtonHomeAway = new javax.swing.JRadioButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jButtonCountPChance = new javax.swing.JButton();
-        jLabelAwayHomePChance = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jRadioButtonDrawHome = new javax.swing.JRadioButton();
-        jTextFieldMoneyBudget = new javax.swing.JTextField();
-        jTextFieldPossibleWin = new javax.swing.JTextField();
-        jTextFieldHomePChance = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
         jRadioButtonHomeDraw = new javax.swing.JRadioButton();
+        jRadioButtonHomeAway = new javax.swing.JRadioButton();
+        jRadioButtonDrawHome = new javax.swing.JRadioButton();
+        jRadioButtonDrawAway = new javax.swing.JRadioButton();
+        jRadioButtonAwayHome = new javax.swing.JRadioButton();
+        jRadioButtonAwayDraw = new javax.swing.JRadioButton();
+        jLabelAwayDrawPChance = new javax.swing.JLabel();
+        jLabelAwayHomePChance = new javax.swing.JLabel();
+        jLabelDrawAwayPChance = new javax.swing.JLabel();
+        jLabelDrawHomePChance = new javax.swing.JLabel();
+        jLabelHomeAwayPChance = new javax.swing.JLabel();
+        jLabelHomeDrawPChance = new javax.swing.JLabel();
+        jPanelInput = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        jTextFieldMoneyBudget = new javax.swing.JTextField();
+        jButtonCountPChance = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jTextFieldAwayCourse = new javax.swing.JTextField();
-        jRadioButtonAwayDraw = new javax.swing.JRadioButton();
-        jLabelHomeDrawPChance = new javax.swing.JLabel();
-        jLabelHomeAwayPChance = new javax.swing.JLabel();
-        jLabelDrawHomePChance = new javax.swing.JLabel();
-        jLabelDrawAwayPChance = new javax.swing.JLabel();
-        jLabelAwayDrawPChance = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jTextFieldDrawCourse = new javax.swing.JTextField();
+        jTextFieldHomeCourse = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jTextFieldHomePChance = new javax.swing.JTextField();
+        jTextFieldDrawPChance = new javax.swing.JTextField();
+        jTextFieldAwayPChance = new javax.swing.JTextField();
+        jButtonCalculateMOney = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        jTextFieldBestBet = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
+        jTextFieldSecBetAmount = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        jTextFieldMainBetAmount = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jTextFieldPossibleWin = new javax.swing.JTextField();
+        jTextFieldCleanWin = new javax.swing.JTextField();
 
-        jTextFieldSecBetAmount.setEnabled(false);
+        jLabelInfo.setText("jLabel11");
 
-        jLabel9.setText("Secondary bet amount:");
+        jLabel10.setText("Choose cover type:");
 
-        jTextFieldDrawPChance.setText("Draw");
-        jTextFieldDrawPChance.setEnabled(false);
-
-        jLabel7.setText("Budget: ");
-
-        jButtonCalculateMOney.setText("Calculate money for bet");
-        jButtonCalculateMOney.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroupCoverType.add(jRadioButtonHomeDraw);
+        jRadioButtonHomeDraw.setText("Home_Draw1");
+        jRadioButtonHomeDraw.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonCalculateMOneyActionPerformed(evt);
+                jRadioButtonHomeDrawActionPerformed(evt);
+            }
+        });
+
+        buttonGroupCoverType.add(jRadioButtonHomeAway);
+        jRadioButtonHomeAway.setText("Home_Away2");
+        jRadioButtonHomeAway.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonHomeAwayActionPerformed(evt);
+            }
+        });
+
+        buttonGroupCoverType.add(jRadioButtonDrawHome);
+        jRadioButtonDrawHome.setText("Draw_Home3");
+        jRadioButtonDrawHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonDrawHomeActionPerformed(evt);
             }
         });
 
@@ -104,9 +123,6 @@ public class CoverBooker extends javax.swing.JPanel {
             }
         });
 
-        jTextFieldAwayPChance.setText("Away");
-        jTextFieldAwayPChance.setEnabled(false);
-
         buttonGroupCoverType.add(jRadioButtonAwayHome);
         jRadioButtonAwayHome.setText("Away_Home6");
         jRadioButtonAwayHome.addActionListener(new java.awt.event.ActionListener() {
@@ -114,68 +130,6 @@ public class CoverBooker extends javax.swing.JPanel {
                 jRadioButtonAwayHomeActionPerformed(evt);
             }
         });
-
-        jLabel2.setText("Home:");
-
-        jTextFieldBestBet.setEnabled(false);
-
-        jTextFieldCleanWin.setText("Clean win");
-        jTextFieldCleanWin.setEnabled(false);
-
-        jLabel10.setText("Choose cover type:");
-
-        jTextFieldMainBetAmount.setEnabled(false);
-
-        buttonGroupCoverType.add(jRadioButtonHomeAway);
-        jRadioButtonHomeAway.setText("Home_Away2");
-        jRadioButtonHomeAway.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonHomeAwayActionPerformed(evt);
-            }
-        });
-
-        jLabel1.setText("Courses:");
-
-        jLabel8.setText("Main bet amount:");
-
-        jLabel5.setText("Percentage Chance:");
-
-        jButtonCountPChance.setText("Percentage Chance");
-        jButtonCountPChance.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonCountPChanceActionPerformed(evt);
-            }
-        });
-
-        jLabelAwayHomePChance.setText("-");
-
-        jLabel6.setText("Best bet:");
-
-        buttonGroupCoverType.add(jRadioButtonDrawHome);
-        jRadioButtonDrawHome.setText("Draw_Home3");
-        jRadioButtonDrawHome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonDrawHomeActionPerformed(evt);
-            }
-        });
-
-        jTextFieldPossibleWin.setText("Possible win");
-        jTextFieldPossibleWin.setEnabled(false);
-
-        jTextFieldHomePChance.setText("Home");
-        jTextFieldHomePChance.setEnabled(false);
-
-        jLabel3.setText("Draw:");
-
-        buttonGroupCoverType.add(jRadioButtonHomeDraw);
-        jRadioButtonHomeDraw.setText("Home_Draw1");
-        jRadioButtonHomeDraw.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonHomeDrawActionPerformed(evt);
-            }
-        });
-
-        jLabel4.setText("Away:");
 
         buttonGroupCoverType.add(jRadioButtonAwayDraw);
         jRadioButtonAwayDraw.setText("Away_Draw5");
@@ -185,166 +139,288 @@ public class CoverBooker extends javax.swing.JPanel {
             }
         });
 
-        jLabelHomeDrawPChance.setText("-");
+        jLabelAwayDrawPChance.setText("-");
 
-        jLabelHomeAwayPChance.setText("-");
-
-        jLabelDrawHomePChance.setText("-");
+        jLabelAwayHomePChance.setText("-");
 
         jLabelDrawAwayPChance.setText("-");
 
-        jLabelAwayDrawPChance.setText("-");
+        jLabelDrawHomePChance.setText("-");
+
+        jLabelHomeAwayPChance.setText("-");
+
+        jLabelHomeDrawPChance.setText("-");
+
+        javax.swing.GroupLayout jPanelCoverTypeLayout = new javax.swing.GroupLayout(jPanelCoverType);
+        jPanelCoverType.setLayout(jPanelCoverTypeLayout);
+        jPanelCoverTypeLayout.setHorizontalGroup(
+            jPanelCoverTypeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelCoverTypeLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelCoverTypeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelCoverTypeLayout.createSequentialGroup()
+                        .addComponent(jLabel10)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanelCoverTypeLayout.createSequentialGroup()
+                        .addGroup(jPanelCoverTypeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jRadioButtonDrawAway)
+                            .addComponent(jRadioButtonHomeDraw)
+                            .addComponent(jRadioButtonHomeAway)
+                            .addComponent(jRadioButtonDrawHome)
+                            .addComponent(jRadioButtonAwayHome)
+                            .addComponent(jRadioButtonAwayDraw))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                        .addGroup(jPanelCoverTypeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCoverTypeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabelAwayDrawPChance, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+                                .addComponent(jLabelAwayHomePChance, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabelDrawAwayPChance, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabelDrawHomePChance, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabelHomeAwayPChance, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabelHomeDrawPChance, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap())
+        );
+        jPanelCoverTypeLayout.setVerticalGroup(
+            jPanelCoverTypeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelCoverTypeLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelCoverTypeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRadioButtonHomeDraw)
+                    .addComponent(jLabelHomeDrawPChance))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelCoverTypeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRadioButtonHomeAway, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelHomeAwayPChance))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelCoverTypeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRadioButtonDrawHome)
+                    .addComponent(jLabelDrawHomePChance))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelCoverTypeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRadioButtonDrawAway)
+                    .addComponent(jLabelDrawAwayPChance))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelCoverTypeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRadioButtonAwayHome)
+                    .addComponent(jLabelAwayHomePChance))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelCoverTypeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRadioButtonAwayDraw, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelAwayDrawPChance))
+                .addContainerGap(16, Short.MAX_VALUE))
+        );
+
+        jLabel7.setText("Budget: ");
+
+        jButtonCountPChance.setText("Percentage Chance");
+        jButtonCountPChance.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCountPChanceActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setText("Away:");
+
+        jLabel3.setText("Draw:");
+
+        jLabel2.setText("Home:");
+
+        jLabel1.setText("Courses:");
+
+        jLabel5.setText("Percentage Chance:");
+
+        jTextFieldHomePChance.setText("Home");
+        jTextFieldHomePChance.setEnabled(false);
+
+        jTextFieldDrawPChance.setText("Draw");
+        jTextFieldDrawPChance.setEnabled(false);
+
+        jTextFieldAwayPChance.setText("Away");
+        jTextFieldAwayPChance.setEnabled(false);
+
+        jButtonCalculateMOney.setText("Calculate money for bet");
+        jButtonCalculateMOney.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCalculateMOneyActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setText("Best bet:");
+
+        jTextFieldBestBet.setEnabled(false);
+
+        javax.swing.GroupLayout jPanelInputLayout = new javax.swing.GroupLayout(jPanelInput);
+        jPanelInput.setLayout(jPanelInputLayout);
+        jPanelInputLayout.setHorizontalGroup(
+            jPanelInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelInputLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addGroup(jPanelInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanelInputLayout.createSequentialGroup()
+                            .addGroup(jPanelInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelInputLayout.createSequentialGroup()
+                                    .addComponent(jLabel3)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jTextFieldDrawCourse, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanelInputLayout.createSequentialGroup()
+                                    .addComponent(jLabel2)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jTextFieldHomeCourse, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanelInputLayout.createSequentialGroup()
+                                    .addComponent(jLabel4)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jTextFieldAwayCourse, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGap(122, 122, 122)
+                            .addGroup(jPanelInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanelInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldDrawPChance, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldAwayPChance, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel5)
+                                .addComponent(jTextFieldHomePChance, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanelInputLayout.createSequentialGroup()
+                            .addGroup(jPanelInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jButtonCountPChance, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelInputLayout.createSequentialGroup()
+                                    .addComponent(jLabel7)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jTextFieldMoneyBudget))
+                                .addComponent(jButtonCalculateMOney, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGap(54, 54, 54)
+                            .addComponent(jLabel6)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jTextFieldBestBet))))
+                .addContainerGap(59, Short.MAX_VALUE))
+        );
+        jPanelInputLayout.setVerticalGroup(
+            jPanelInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelInputLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel5))
+                .addGroup(jPanelInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelInputLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jTextFieldDrawPChance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextFieldAwayPChance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(9, 9, 9))
+                    .addGroup(jPanelInputLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanelInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(jTextFieldHomeCourse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldHomePChance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanelInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(jTextFieldDrawCourse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanelInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(jTextFieldAwayCourse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)))
+                .addComponent(jButtonCountPChance)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addGroup(jPanelInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(jTextFieldMoneyBudget, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6)
+                    .addComponent(jTextFieldBestBet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(9, 9, 9)
+                .addComponent(jButtonCalculateMOney)
+                .addContainerGap())
+        );
+
+        jTextFieldSecBetAmount.setEnabled(false);
+
+        jLabel8.setText("Main bet amount:");
+
+        jTextFieldMainBetAmount.setEnabled(false);
+
+        jLabel9.setText("Secondary bet amount:");
+
+        jTextFieldPossibleWin.setText("Possible win");
+        jTextFieldPossibleWin.setEnabled(false);
+
+        jTextFieldCleanWin.setText("Clean win");
+        jTextFieldCleanWin.setEnabled(false);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel9))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextFieldSecBetAmount, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
+                            .addComponent(jTextFieldMainBetAmount)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jTextFieldPossibleWin, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldCleanWin, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 6, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(jTextFieldMainBetAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel9)
+                    .addComponent(jTextFieldSecBetAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(45, 45, 45)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldPossibleWin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldCleanWin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout jPanelCoverBookerLayout = new javax.swing.GroupLayout(jPanelCoverBooker);
         jPanelCoverBooker.setLayout(jPanelCoverBookerLayout);
         jPanelCoverBookerLayout.setHorizontalGroup(
             jPanelCoverBookerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 512, Short.MAX_VALUE)
-            .addGroup(jPanelCoverBookerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanelCoverBookerLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addGroup(jPanelCoverBookerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanelCoverBookerLayout.createSequentialGroup()
-                            .addGroup(jPanelCoverBookerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanelCoverBookerLayout.createSequentialGroup()
-                                    .addComponent(jLabel7)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextFieldMoneyBudget, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE))
-                                .addComponent(jLabel1)
-                                .addGroup(jPanelCoverBookerLayout.createSequentialGroup()
-                                    .addGap(10, 10, 10)
-                                    .addGroup(jPanelCoverBookerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addGroup(jPanelCoverBookerLayout.createSequentialGroup()
-                                            .addComponent(jLabel3)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(jTextFieldDrawCourse))
-                                        .addGroup(jPanelCoverBookerLayout.createSequentialGroup()
-                                            .addComponent(jLabel2)
-                                            .addGap(10, 10, 10)
-                                            .addComponent(jTextFieldHomeCourse, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(jPanelCoverBookerLayout.createSequentialGroup()
-                                            .addComponent(jLabel4)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(jTextFieldAwayCourse, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addComponent(jButtonCountPChance))
-                            .addGap(71, 71, 71)
-                            .addGroup(jPanelCoverBookerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel8)
-                                .addComponent(jLabel5)
-                                .addGroup(jPanelCoverBookerLayout.createSequentialGroup()
-                                    .addGap(10, 10, 10)
-                                    .addGroup(jPanelCoverBookerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jTextFieldDrawPChance, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jTextFieldHomePChance, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
-                                        .addComponent(jTextFieldAwayPChance, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addComponent(jLabel9)
-                                .addGroup(jPanelCoverBookerLayout.createSequentialGroup()
-                                    .addComponent(jLabel6)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jTextFieldBestBet, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(jPanelCoverBookerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jTextFieldSecBetAmount, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
-                                .addComponent(jTextFieldMainBetAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(jPanelCoverBookerLayout.createSequentialGroup()
-                            .addGroup(jPanelCoverBookerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jRadioButtonDrawHome, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jRadioButtonHomeDraw, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jRadioButtonAwayHome, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jRadioButtonDrawAway, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jRadioButtonHomeAway, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jRadioButtonAwayDraw, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jButtonCalculateMOney, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.LEADING))
-                            .addGap(46, 46, 46)
-                            .addGroup(jPanelCoverBookerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanelCoverBookerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabelAwayDrawPChance, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabelAwayHomePChance, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabelDrawAwayPChance, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabelDrawHomePChance, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabelHomeAwayPChance, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabelHomeDrawPChance, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanelCoverBookerLayout.createSequentialGroup()
-                                    .addComponent(jTextFieldPossibleWin, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jTextFieldCleanWin, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGap(42, 42, 42)))
-                    .addContainerGap()))
+            .addGroup(jPanelCoverBookerLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelCoverBookerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelCoverBookerLayout.createSequentialGroup()
+                        .addComponent(jPanelInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanelCoverBookerLayout.createSequentialGroup()
+                        .addGroup(jPanelCoverBookerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelInfo)
+                            .addGroup(jPanelCoverBookerLayout.createSequentialGroup()
+                                .addComponent(jPanelCoverType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanelCoverBookerLayout.setVerticalGroup(
             jPanelCoverBookerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 469, Short.MAX_VALUE)
-            .addGroup(jPanelCoverBookerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanelCoverBookerLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addGroup(jPanelCoverBookerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel1)
-                        .addComponent(jLabel5))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addGroup(jPanelCoverBookerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel2)
-                        .addComponent(jTextFieldHomeCourse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextFieldHomePChance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addGroup(jPanelCoverBookerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel3)
-                        .addComponent(jTextFieldDrawCourse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextFieldDrawPChance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addGroup(jPanelCoverBookerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel4)
-                        .addGroup(jPanelCoverBookerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextFieldAwayCourse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldAwayPChance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGap(18, 18, 18)
-                    .addGroup(jPanelCoverBookerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jButtonCountPChance)
-                        .addGroup(jPanelCoverBookerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(jTextFieldBestBet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGap(36, 36, 36)
-                    .addGroup(jPanelCoverBookerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel7)
-                        .addComponent(jTextFieldMoneyBudget, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel8)
-                        .addComponent(jTextFieldMainBetAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addGroup(jPanelCoverBookerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel9)
-                        .addComponent(jTextFieldSecBetAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(12, 12, 12)
-                    .addComponent(jLabel10)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addGroup(jPanelCoverBookerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jRadioButtonHomeDraw)
-                        .addComponent(jLabelHomeDrawPChance))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addGroup(jPanelCoverBookerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabelHomeAwayPChance)
-                        .addComponent(jRadioButtonHomeAway, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addGroup(jPanelCoverBookerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jRadioButtonDrawHome)
-                        .addComponent(jLabelDrawHomePChance))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addGroup(jPanelCoverBookerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabelDrawAwayPChance)
-                        .addComponent(jRadioButtonDrawAway))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addGroup(jPanelCoverBookerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jRadioButtonAwayHome)
-                        .addComponent(jLabelAwayHomePChance))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addGroup(jPanelCoverBookerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabelAwayDrawPChance)
-                        .addComponent(jRadioButtonAwayDraw, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(29, 29, 29)
-                    .addGroup(jPanelCoverBookerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButtonCalculateMOney)
-                        .addComponent(jTextFieldPossibleWin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextFieldCleanWin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            .addGroup(jPanelCoverBookerLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabelInfo)
+                .addGap(16, 16, 16)
+                .addComponent(jPanelInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanelCoverBookerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanelCoverType, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -352,46 +428,54 @@ public class CoverBooker extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(82, 82, 82)
                 .addComponent(jPanelCoverBooker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(26, Short.MAX_VALUE)
                 .addComponent(jPanelCoverBooker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonCalculateMOneyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCalculateMOneyActionPerformed
 
-        double moneyBudget = Double.parseDouble(jTextFieldMoneyBudget.getText());
-        //CoverTypeENUM bestType = calc.getBestType();
+        if(jTextFieldMoneyBudget.getText().equals(""))
+        {
+            jLabelInfo.setText("Fill budget.");
+        }
+        else
+        {
+            double moneyBudget = calc.checkField(jTextFieldMoneyBudget.getText(), jLabelInfo);
+            //CoverTypeENUM bestType = calc.getBestType();
 
-        double homeCourse = calc.getEvent().getHomeCourse();
-        double drawCourse = calc.getEvent().getDrawCourse();
-        double awayCourse = calc.getEvent().getAwayCourse();
+            double homeCourse = calc.getEvent().getHomeCourse();
+            double drawCourse = calc.getEvent().getDrawCourse();
+            double awayCourse = calc.getEvent().getAwayCourse();
 
-        calc.getCoverBookerMoney().calcuteMoneyRates(homeCourse,
-            drawCourse, awayCourse, moneyBudget, selectedType);
+            calc.getCoverBookerMoney().calcuteMoneyRates(homeCourse,
+                drawCourse, awayCourse, moneyBudget, selectedType);
 
-        double possibleWin = calc.getCoverBookerMoney().calculatePossibleWin(homeCourse,
-            drawCourse, awayCourse, calc.getCoverBookerMoney().getMainBetMoney(),
-            selectedType);
+            double possibleWin = calc.getCoverBookerMoney().calculatePossibleWin(homeCourse,
+                drawCourse, awayCourse, calc.getCoverBookerMoney().getMainBetMoney(),
+                selectedType);
 
-        double cleanWin = calc.getCoverBookerMoney().calculateCleanWin(possibleWin, moneyBudget);
+            double cleanWin = calc.getCoverBookerMoney().calculateCleanWin(possibleWin, moneyBudget);
 
-        String mainBetMoneyString = nf.format(calc.getCoverBookerMoney().getMainBetMoney());
-        String secBetMoneyString = nf.format(calc.getCoverBookerMoney().getSecondaryBetMoney());
-        String possibleWinString = nf.format(possibleWin);
-        String cleanWinString = nf.format(cleanWin);
+            String mainBetMoneyString = nf.format(calc.getCoverBookerMoney().getMainBetMoney());
+            String secBetMoneyString = nf.format(calc.getCoverBookerMoney().getSecondaryBetMoney());
+            String possibleWinString = nf.format(possibleWin);
+            String cleanWinString = nf.format(cleanWin);
 
-        jTextFieldMainBetAmount.setText(mainBetMoneyString);
-        jTextFieldSecBetAmount.setText(secBetMoneyString);
-        jTextFieldPossibleWin.setText(possibleWinString);
-        jTextFieldCleanWin.setText(cleanWinString);
+            jTextFieldMainBetAmount.setText(mainBetMoneyString);
+            jTextFieldSecBetAmount.setText(secBetMoneyString);
+            jTextFieldPossibleWin.setText(possibleWinString);
+            jTextFieldCleanWin.setText(cleanWinString);
+        }
+        
     }//GEN-LAST:event_jButtonCalculateMOneyActionPerformed
 
     private void jRadioButtonDrawAwayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonDrawAwayActionPerformed
@@ -411,38 +495,54 @@ public class CoverBooker extends javax.swing.JPanel {
 
     private void jButtonCountPChanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCountPChanceActionPerformed
 
-        calc = new CoverBookerCalc(jTextFieldHomeCourse, 
-                jTextFieldDrawCourse, jTextFieldAwayCourse);
-        calc.calculatePercentageChance();
+        if(jTextFieldAwayCourse.getText().equals("") 
+                || jTextFieldDrawCourse.getText().equals("")
+                || jTextFieldHomeCourse.getText().equals(""))
+        {
+            jLabelInfo.setText("Fill all courses.");
+        }
+//        else if(jTextFieldDrawPChance.getText().equals("Draw")
+//                || jTextFieldHomePChance.getText().equals("Home")
+//                || jTextFieldAwayPChance.getText().equals("Away"))
+//        {
+//            jLabelInfo.setText("Count percentage chance.");
+//        }
+        else
+        {
+            calc = new CoverBookerCalc(jTextFieldHomeCourse, 
+                jTextFieldDrawCourse, jTextFieldAwayCourse, jLabelInfo);
+            calc.calculatePercentageChance();
 
-        double homePChance = calc.getpChance().getHomePercentageChance();
-        double drawPChance = calc.getpChance().getDrawPercentageChance();
-        double awayPChance = calc.getpChance().getAwayPercentageChance();
+            double homePChance = calc.getpChance().getHomePercentageChance();
+            double drawPChance = calc.getpChance().getDrawPercentageChance();
+            double awayPChance = calc.getpChance().getAwayPercentageChance();
 
-        calc.getBestOptionSorter();
-        CoverTypeENUM bestType = calc.getBestType();
+            calc.getBestOptionSorter();
+            CoverTypeENUM bestType = calc.getBestType();           
+            
+            String homePChanceString = nf.format(homePChance);
+            String drawPChanceString = nf.format(drawPChance);
+            String awayPChanceString = nf.format(awayPChance);
 
-        String homePChanceString = nf.format(homePChance);
-        String drawPChanceString = nf.format(drawPChance);
-        String awayPChanceString = nf.format(awayPChance);
+            String homeAndDrawPChanceString = nf.format(calc.getpChance().getHomeAndDrawPChance());
+            String homeAndAwayPChanceString = nf.format(calc.getpChance().getHomeAndAwayPChance());
+            String drawAndAwayPChanceString = nf.format(calc.getpChance().getDrawAndAwayPChance());
 
-        String homeAndDrawPChanceString = nf.format(calc.getpChance().getHomeAndDrawPChance());
-        String homeAndAwayPChanceString = nf.format(calc.getpChance().getHomeAndAwayPChance());
-        String drawAndAwayPChanceString = nf.format(calc.getpChance().getDrawAndAwayPChance());
+            jTextFieldHomePChance.setText(homePChanceString);
+            jTextFieldDrawPChance.setText(drawPChanceString);
+            jTextFieldAwayPChance.setText(awayPChanceString);
+            jTextFieldBestBet.setText(bestType.toString());
 
-        jTextFieldHomePChance.setText(homePChanceString);
-        jTextFieldDrawPChance.setText(drawPChanceString);
-        jTextFieldAwayPChance.setText(awayPChanceString);
-        jTextFieldBestBet.setText(bestType.toString());
-
-        jLabelHomeDrawPChance.setText(homeAndDrawPChanceString);
-        jLabelDrawHomePChance.setText(homeAndDrawPChanceString);
-        jLabelHomeAwayPChance.setText(homeAndAwayPChanceString);
-        jLabelAwayHomePChance.setText(homeAndAwayPChanceString);
-        jLabelDrawAwayPChance.setText(drawAndAwayPChanceString);
-        jLabelAwayDrawPChance.setText(drawAndAwayPChanceString);
+            jLabelHomeDrawPChance.setText(homeAndDrawPChanceString);
+            jLabelDrawHomePChance.setText(homeAndDrawPChanceString);
+            jLabelHomeAwayPChance.setText(homeAndAwayPChanceString);
+            jLabelAwayHomePChance.setText(homeAndAwayPChanceString);
+            jLabelDrawAwayPChance.setText(drawAndAwayPChanceString);
+            jLabelAwayDrawPChance.setText(drawAndAwayPChanceString);
+        }
+        
     }//GEN-LAST:event_jButtonCountPChanceActionPerformed
-
+     
     private void jRadioButtonDrawHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonDrawHomeActionPerformed
 
         selectedType = CoverTypeENUM.Draw_Home;
@@ -478,7 +578,11 @@ public class CoverBooker extends javax.swing.JPanel {
     private javax.swing.JLabel jLabelDrawHomePChance;
     private javax.swing.JLabel jLabelHomeAwayPChance;
     private javax.swing.JLabel jLabelHomeDrawPChance;
+    private javax.swing.JLabel jLabelInfo;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanelCoverBooker;
+    private javax.swing.JPanel jPanelCoverType;
+    private javax.swing.JPanel jPanelInput;
     private javax.swing.JRadioButton jRadioButtonAwayDraw;
     private javax.swing.JRadioButton jRadioButtonAwayHome;
     private javax.swing.JRadioButton jRadioButtonDrawAway;

@@ -10,9 +10,6 @@
  */
 package dataBase;
 
-import java.sql.SQLException;
-import java.util.LinkedList;
-import java.util.List;
 import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import javax.swing.ListModel;
@@ -38,10 +35,9 @@ public class BetsManager extends javax.swing.JPanel {
        
         setFields();
         activateButtons(false);
+        
         fillLists();         
-        fillTodayBets();
-        fillEndedBetsToUpdate();
-        fillEndedBetsInProgToUpdate();
+        fillUpperLists();
     }
     
     private void setFields()
@@ -109,6 +105,20 @@ public class BetsManager extends javax.swing.JPanel {
         jComboBoxBetStatus.addItem("Lost bets in progressions");
            
         jComboBoxBetStatus.addItem("Resolved progressions");
+    }
+    
+    private void fillUpperLists()
+    {
+        fillEndedBetsInProgToUpdate();;
+        fillEndedBetsToUpdate();
+        fillTodayBets();
+    }
+    
+    private void cleanUpperLists()
+    {
+        jListEndedBetsInProgToUpdate.removeAll();
+        jListEndedBetsToUpdate.removeAll();;
+        jListTodayBets.removeAll();
     }
     
     private void fillTodayBets()
@@ -222,8 +232,9 @@ public class BetsManager extends javax.swing.JPanel {
                 if(jComboBoxBetStatus.getSelectedItem().toString().equals("Resolved bets not in progressions"))
                 {
                     
-                    filterBets(DataContainer.listModelResolvedBetsNotInProg);
+                    //DataContainer.filterBets(DataContainer.listModelResolvedBetsNotInProg, jComboBoxDate);
                     //jListBets.setModel(DataContainer.listModelResolvedBetsNotInProg);
+                    filterBets(DataContainer.listModelResolvedBetsNotInProg);
                     jListBets.setModel(filteredBets);
                     jListBets.updateUI();
                     jTextAreaBetInfo.setText("");
@@ -446,6 +457,7 @@ public class BetsManager extends javax.swing.JPanel {
                     .addComponent(jComboBoxDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -458,17 +470,13 @@ public class BetsManager extends javax.swing.JPanel {
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabel4)
                                         .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addComponent(jButtonAddNewBet, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(27, Short.MAX_VALUE))
-                    .addComponent(jScrollPane2)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButtonAddNewBet, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabelInformation)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jButtonEdit)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButtonDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 196, Short.MAX_VALUE))))
+                        .addContainerGap(27, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -479,11 +487,11 @@ public class BetsManager extends javax.swing.JPanel {
                         .addComponent(jLabel4))
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(6, 6, 6)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
+                    .addComponent(jScrollPane4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonUpdate)
                 .addGap(7, 7, 7)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -506,7 +514,7 @@ public class BetsManager extends javax.swing.JPanel {
                             .addComponent(jButtonDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabelInformation))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -572,9 +580,6 @@ public class BetsManager extends javax.swing.JPanel {
                     {
 //                        DataContainer.object = DataContainer.listModelProgressions.getElementAt(
 //                            jListBets.getSelectedIndex());
-//                        Progression prog = (Progression) DataContainer.object;
-                        
-//                        DataContainer.object = jListBets.getSelectedValue();
 //                        Progression prog = (Progression) DataContainer.object;
 //                        info = DataContainer.dataFromDB.getProgressionInfo(prog);     
                         
@@ -652,6 +657,7 @@ public class BetsManager extends javax.swing.JPanel {
             //otwiera okno - wszystkie zmiany zachodza w UpdateBet po kliknieciu Confirm
             UpdateBet updateBet = new UpdateBet();
             updateBet.setVisible(true);
+            updateBet.setTitle("Updated bet");
             updateBet.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             updateBet.getLists(jListEndedBetsToUpdate, jListEndedBetsInProgToUpdate, jListTodayBets);
       
@@ -678,7 +684,7 @@ public class BetsManager extends javax.swing.JPanel {
         addBetFrame.setTitle("New bet");
         
         NewBet newBet = new NewBet();
-        addBetFrame.add(newBet);
+        addBetFrame.add(newBet);       
     }//GEN-LAST:event_jButtonAddNewBetActionPerformed
 
     private void saveBetData()
@@ -728,7 +734,7 @@ public class BetsManager extends javax.swing.JPanel {
         JFrame editProgFrame = new JFrame();
         editProgFrame.setVisible(true);
         editProgFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        editProgFrame.setSize(700, 320);
+        editProgFrame.setSize(950, 350);
         editProgFrame.setTitle("Edit progression");
         
         EditProgression editProg = new EditProgression();
@@ -812,7 +818,7 @@ public class BetsManager extends javax.swing.JPanel {
             JFrame deleteProgFrame = new JFrame();
             deleteProgFrame.setVisible(true);
             deleteProgFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-            deleteProgFrame.setSize(200, 245);
+            deleteProgFrame.setSize(600, 130);
             deleteProgFrame.setTitle("Delete progression");
 
             DeleteProgression delProg = new DeleteProgression();
@@ -828,14 +834,14 @@ public class BetsManager extends javax.swing.JPanel {
         //
         //
         
-        try
-                {
-                    DataContainer.dataFromDB.getQueryManager().getConn().setAutoCommit(false);
-                }
-                catch(SQLException e)
-                {
-                    System.out.println("autocommit error");
-                }
+//        try
+//                {
+//                    DataContainer.dataFromDB.getQueryManager().getConn().setAutoCommit(false);
+//                }
+//                catch(SQLException e)
+//                {
+//                    System.out.println("autocommit error");
+//                }
         DataContainer.object = jListBets.getSelectedValue();
         
         //w zaleznosci od listy (zaklad lub progresja)

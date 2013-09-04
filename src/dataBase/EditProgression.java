@@ -28,6 +28,7 @@ public class EditProgression extends javax.swing.JPanel {
         jButtonSave.setText("Save changes");
         jLabel1.setText("Progression name:");
         jTextAreaProgInfo.setEnabled(false);
+        jLabelInformation.setText("Edit progression information.");
     }
     
     private void loadData()
@@ -75,6 +76,7 @@ public class EditProgression extends javax.swing.JPanel {
         jButtonSave = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jTextFieldProgName = new javax.swing.JTextField();
+        jLabelInformation = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(350, 220));
 
@@ -107,6 +109,8 @@ public class EditProgression extends javax.swing.JPanel {
 
         jLabel1.setText("jLabel1");
 
+        jLabelInformation.setText("jLabel2");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -118,13 +122,16 @@ public class EditProgression extends javax.swing.JPanel {
                         .addComponent(jRadioButtonActive)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jRadioButtonResolved)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
                         .addComponent(jButtonSave))
                     .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldProgName)))
+                        .addComponent(jTextFieldProgName))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabelInformation)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -141,7 +148,9 @@ public class EditProgression extends javax.swing.JPanel {
                     .addComponent(jRadioButtonActive)
                     .addComponent(jRadioButtonResolved)
                     .addComponent(jButtonSave))
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabelInformation)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -160,12 +169,14 @@ public class EditProgression extends javax.swing.JPanel {
         String progressionName = jTextFieldProgName.getText();
         DataContainer.dataFromDB.getQueryManager().updateProgression(progressionName, status, DataContainer.id);
         DataContainer.updateLists();
+        jLabelInformation.setText("Progression updated.");
     }//GEN-LAST:event_jButtonSaveActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroupProg;
     private javax.swing.JButton jButtonSave;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabelInformation;
     private javax.swing.JRadioButton jRadioButtonActive;
     private javax.swing.JRadioButton jRadioButtonResolved;
     private javax.swing.JScrollPane jScrollPane1;
