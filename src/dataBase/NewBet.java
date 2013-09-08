@@ -378,9 +378,6 @@ public class NewBet extends javax.swing.JPanel {
         String note = jTextAreaNote.getText();
         String type = jComboBoxType.getSelectedItem().toString();
         
-        int betId = 0;
-        int progressionId = 0;
- 
         if(jCheckBoxProgression.isSelected())
         {
             String progressionName = "";
@@ -390,7 +387,7 @@ public class NewBet extends javax.swing.JPanel {
                 progressionName = jComboBoxExistingProgression.getSelectedItem().toString();
                 DataContainer.dataFromDB.getQueryManager().addBetInProgressionExisting(betName, date, odd, stake, 
                         bukmacher, note, type, progressionName);
-                
+ /*               
                 //tworzy obiekt, ktory zostanie dodany do listy
                 //id - zaklad zostal dodany, trzeba zliczyc wszystkie zaklady
                 betId = DataContainer.dataFromDB.getQueryManager().countAllBets() + 1;
@@ -399,11 +396,12 @@ public class NewBet extends javax.swing.JPanel {
                         bukmacher, note, type, progressionId , progressionName, 1);
                 Bet bet = (Bet) betInProg;
                 
-                //aktualizacja list              
-                //aktywne zaklady w progresji
+//                aktualizacja list              
+//                aktywne zaklady w progresji
                 DataContainer.listModelActiveInProg.addElement(betInProg);
                 //wszystkie aktywne zaklady
                 DataContainer.listModelAllActive.addElement(bet);
+                * */
             }
 
             if(jRadioButtonNewProgression.isSelected())
@@ -411,7 +409,7 @@ public class NewBet extends javax.swing.JPanel {
                 progressionName = jTextFieldProgressionName.getText();
                 DataContainer.dataFromDB.getQueryManager().addBetInProgressionNew(betName, date, odd, stake, 
                         bukmacher, note, type, progressionName);
-                
+ /*               
                 //tworzy obiekt, ktory zostanie dodany do listy
                 //betId - zaklad zostal dodany, trzeba zliczyc wszystkie zaklady
                 //progressionId - jak wyzej
@@ -429,7 +427,7 @@ public class NewBet extends javax.swing.JPanel {
                 DataContainer.listModelActiveInProg.addElement(betInProg);
                 //aktywne progresje
                 DataContainer.listModelProgressions.addElement(prog);
-                
+                */
                 //uaktualnienie listy progresji w NewBet
                 refreshComboBox();
             }
@@ -437,7 +435,7 @@ public class NewBet extends javax.swing.JPanel {
         else
         {
             DataContainer.dataFromDB.getQueryManager().addBet(betName, date, odd, stake, bukmacher, note, type);
-            
+    /*        
             //betId - zaklad zostal dodany, trzeba zliczyc wszystkie zaklady
             betId = DataContainer.dataFromDB.getQueryManager().countAllBets() + 1;
             
@@ -447,6 +445,7 @@ public class NewBet extends javax.swing.JPanel {
             DataContainer.listModelAllActive.addElement(bet);
             //aktywne zaklady nie w progresji
             DataContainer.listModelActiveNotInProg.addElement(bet);           
+            * */
         }
         
         DataContainer.updateLists();

@@ -35,7 +35,6 @@ public class ConnectionManager {
         try
         {
             conn = DriverManager.getConnection("jdbc:sqlite:TyperDB");
-            System.out.println("Polaczenie z SQLite");
         }
         catch(SQLException e)
         {

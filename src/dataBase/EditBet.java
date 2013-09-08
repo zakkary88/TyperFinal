@@ -421,6 +421,13 @@ public class EditBet extends javax.swing.JPanel {
             jComboBoxBukmacher.addItem(b);
     }
     
+    private void refreshComboBox()
+    {
+        DataContainer.comboBoxModelProgressions.removeAllElements();
+        DataContainer.fillAllProgressionsCombo();
+        jComboBoxExistingProgression.setModel(DataContainer.comboBoxModelAllProgressions);
+    }
+    
     private void loadDataFromDBforBet()
     {
         betNotInProg = DataContainer.dataFromDB.getQueryManager().getBetNotInProg(
@@ -593,8 +600,10 @@ public class EditBet extends javax.swing.JPanel {
             if(jRadioButtonExistingProgression.isSelected())
             {             
                 progressionName = jComboBoxExistingProgression.getSelectedItem().toString();
-                progressionId = DataContainer.dataFromDB.
-                        getProgressionsIndexById(jComboBoxExistingProgression.getSelectedIndex());
+//                progressionId = DataContainer.dataFromDB.
+//                        getProgressionsIndexById(jComboBoxExistingProgression.getSelectedIndex());
+                Progression prog = (Progression) jComboBoxExistingProgression.getSelectedItem();
+                progressionId = prog.getProgressionId();
                 
                 //status progresji zalezy od statusu zakladu
                 //status zakladu - 1 lub 3 -> status progresji = 1 (progresja trwa)
@@ -619,14 +628,20 @@ public class EditBet extends javax.swing.JPanel {
                 DataContainer.dataFromDB.getQueryManager().addProgression(progressionName);
                 progressionId = DataContainer.dataFromDB.getQueryManager().countAllProgressions(); 
                 
+                //status progresji zalezy od statusu zakladu
+                //status zakladu - 1 lub 3 -> status progresji = 1 (progresja trwa)
+                //status zakladu - 1 lub 3 -> status progresji = 2 (progresja zakonczona)
+                int progressionsStatus = setProgressionStatus(status); 
+                
                 //public BetInProgression(int betId, String betName, String date, double odd, 
                 //double stake, int betStatus, String bukmacher, String note, double balance, 
                 //String type, int progressionId, String progressionName, int progressionStatus)
                 BetInProgression bip = new BetInProgression(DataContainer.id, betName, date, 
                         odd, stake, status, bukmacher, note, 0.0 , type, 
-                        progressionId , progressionName, 1);
+                        progressionId , progressionName, progressionsStatus);
 
                 DataContainer.dataFromDB.getQueryManager().updateBet(bip);
+                refreshComboBox();
                 //DataContainer.dataFromDB.getQueryManager().addProgression(progressionName);
             }
         }
@@ -643,9 +658,11 @@ public class EditBet extends javax.swing.JPanel {
             DataContainer.dataFromDB.getQueryManager().updateBet(bet);
         }
      
-        //aktualizacja wszystkich list
+        //aktualizacja wszystkich list      
         DataContainer.updateLists();
         jLabelTitle.setText("Bet updated.");
+
+        
     }//GEN-LAST:event_jButtonSaveChangesActionPerformed
   
     private void jCheckBoxProgressionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxProgressionActionPerformed

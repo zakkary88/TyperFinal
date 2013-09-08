@@ -357,6 +357,16 @@ public class QueryManager {
     {
         this.conn = conn;
     }
+    
+    private int setId()
+    {
+        return countAllBets() +  1;
+    }
+    
+    private int setIdForProgression()
+    {
+        return countAllProgressions() + 1;
+    }
 
     public int countAllBets()
     {
@@ -911,16 +921,6 @@ public class QueryManager {
         }
     }
     
-    private int setId()
-    {
-        return countAllBets() +  1;
-    }
-    
-    private int setIdForProgression()
-    {
-        return countAllProgressions() + 1;
-    }
-    
     public void endProgression(int progressionId)
     {
         try
@@ -970,7 +970,8 @@ public class QueryManager {
             System.out.println(update + " updates. " + "Bet: " + id);
             
             //update na podstawie statusu zakladu (wygrany/przegrany/ odwolany-nierozstrzygniety)
-            if(status == 1 || status == 4)
+            //if(status == 1 || status == 4)
+            if(status == 1)
                 updateBetStmt.setDouble(9, 0.0);
             
             if(status == 2)  //wygrany
@@ -992,7 +993,7 @@ public class QueryManager {
                 changeLostBetBalanceStmt.setInt(1, id);
                 
                 int up = changeLostBetBalanceStmt.executeUpdate();
-                System.out.println(up + " updates. " + "Bet: " + id + " lost!");
+                //System.out.println(up + " updates. " + "Bet: " + id + " lost!");
             }       
         }
         catch(SQLException e)

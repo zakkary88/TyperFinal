@@ -827,21 +827,7 @@ public class BetsManager extends javax.swing.JPanel {
     
     private void jButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteActionPerformed
         
-        //
-        //TODO delete - autocommit
-        //
-        //      AUTOCOMMIT = false  !!!!!!!!!!!!!!!!!
-        //
-        //
-        
-//        try
-//                {
-//                    DataContainer.dataFromDB.getQueryManager().getConn().setAutoCommit(false);
-//                }
-//                catch(SQLException e)
-//                {
-//                    System.out.println("autocommit error");
-//                }
+
         DataContainer.object = jListBets.getSelectedValue();
         
         //w zaleznosci od listy (zaklad lub progresja)

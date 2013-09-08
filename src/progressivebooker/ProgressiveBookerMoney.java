@@ -78,10 +78,10 @@ public class ProgressiveBookerMoney {
                 wonMoney = round(wonMoney,2);
                 lostMoney = 0.0;  
                 
-                info += (i+1) + ": odd: " 
+                info += (i+1) + ": \todd: " 
                         + odds.get(i).toString() + 
-                        " \t stake: " + currentBetAmount + 
-                        " \t WON:  " + wonMoney + "\n";               
+                        " \t\t stake: " + currentBetAmount + 
+                        " \t\t WON:  " + wonMoney + "\n";               
    
                 currentBetAmount = progressionType.steadyProfitCurrentBetAmount(moneyToWin, 0.0, odds.get(i));
                 currentBetAmount = round(currentBetAmount, 2);
@@ -92,10 +92,10 @@ public class ProgressiveBookerMoney {
                 lostMoney += currentBetAmount;
                 lostMoney = round(lostMoney,2);
 
-                info += (i+1) + ": odd: " 
+                info += (i+1) + ": \todd: " 
                         + odds.get(i).toString() +  
-                        " \t stake: " + currentBetAmount + 
-                        " \t lost:  " + lostMoney + "\n";
+                        " \t\t stake: " + currentBetAmount + 
+                        " \t\t lost:  " + lostMoney + "\n";
                 
                 currentBetAmount = progressionType.steadyProfitCurrentBetAmount(moneyToWin, lostMoney, odds.get(i));                         
                 currentBetAmount = round(currentBetAmount,2);
@@ -128,10 +128,10 @@ public class ProgressiveBookerMoney {
                 wonMoney = round(wonMoney, 2);
                 lostMoney = 0.0;
                 
-                info += (i+1) + ": odd: " 
+                info += (i+1) + ": \todd: " 
                         + odds.get(i).toString() + 
-                        " \t stake: " + currentBetAmount + 
-                        " \t WON:  " + wonMoney + "\n";
+                        " \t\t stake: " + currentBetAmount + 
+                        " \t\t WON:  " + wonMoney + "\n";
                 
                 currentBetAmount = startBetAmount;
                 wonMoney = 0.0;
@@ -140,10 +140,10 @@ public class ProgressiveBookerMoney {
             {
                 lostMoney += currentBetAmount;
               
-                info += (i+1) + ": odd: " 
+                info += (i+1) + ": \todd: " 
                         + odds.get(i).toString() +  
-                        " \t stake: " + currentBetAmount + 
-                        " \t lost:  " + lostMoney + "\n";
+                        " \t\t stake: " + currentBetAmount + 
+                        " \t\t lost:  " + lostMoney + "\n";
                 
                 currentBetAmount = progressionType.doublingUpCurrentBetAmount(currentBetAmount);
                 currentBetAmount = round(currentBetAmount, 2);
@@ -178,10 +178,10 @@ public class ProgressiveBookerMoney {
                 wonMoney = round(wonMoney, 2);
                 lostMoney = 0.0;
                 
-                info += (i+1) + ": odd: " 
+                info += (i+1) + ": \todd: " 
                         + odds.get(i).toString() + 
-                        " \t stake: " + currentBetAmount + 
-                        " \t WON:  " + wonMoney + "\n";
+                        " \t\t stake: " + currentBetAmount + 
+                        " \t\t WON:  " + wonMoney + "\n";
                 
                 progressionType.getMoneyRates().clear();
                 
@@ -195,10 +195,10 @@ public class ProgressiveBookerMoney {
                 lostMoney += currentBetAmount;
                 lostMoney = round(lostMoney, 2);
                 
-                info += (i+1) + ": odd: " 
+                info += (i+1) + ": \todd: " 
                         + odds.get(i).toString() +  
-                        " \t stake: " + currentBetAmount + 
-                        " \t lost:  " + lostMoney + "\n";
+                        " \t\t stake: " + currentBetAmount + 
+                        " \t\t lost:  " + lostMoney + "\n";
                                                       
                 currentBetAmount = progressionType.fibonnaciCurrentBetAmount(startBetAmount, progressionLevel);
                 currentBetAmount = round(currentBetAmount, 2);               

@@ -36,7 +36,7 @@ public class ProgressiveSimulator {
         
         for(int i=0; i<pbm.getOdds().size(); ++i)
         {
-            oddsString += (i+1) + " event draw odd: " + pbm.getOdds().get(i).toString() + "\n";
+            oddsString += (i+1) + " event\t draw odd: \t" + pbm.getOdds().get(i).toString() + "\n";
         }
         
         return oddsString;
