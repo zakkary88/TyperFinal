@@ -4,6 +4,9 @@
  */
 package dataBase;
 
+import java.text.NumberFormat;
+import java.text.ParseException;
+
 /**
  *
  * @author Marcin
@@ -11,6 +14,7 @@ package dataBase;
 public class NewBet extends javax.swing.JPanel {
 
     private Calendar calendar = null;
+    private NumberFormat nf = NumberFormat.getInstance();
     
     public NewBet() 
     {
@@ -366,7 +370,7 @@ public class NewBet extends javax.swing.JPanel {
         DataContainer.comboBoxModelProgressions.removeAllElements();
         DataContainer.fillActiveProgressionsCombo();
         jComboBoxExistingProgression.setModel(DataContainer.comboBoxModelProgressions);
-    }
+    }    
      
     private void jButtonAddBetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddBetActionPerformed
 
@@ -386,69 +390,23 @@ public class NewBet extends javax.swing.JPanel {
             {
                 progressionName = jComboBoxExistingProgression.getSelectedItem().toString();
                 DataContainer.dataFromDB.getQueryManager().addBetInProgressionExisting(betName, date, odd, stake, 
-                        bukmacher, note, type, progressionName);
- /*               
-                //tworzy obiekt, ktory zostanie dodany do listy
-                //id - zaklad zostal dodany, trzeba zliczyc wszystkie zaklady
-                betId = DataContainer.dataFromDB.getQueryManager().countAllBets() + 1;
-                progressionId = DataContainer.dataFromDB.getQueryManager().countAllProgressions();
-                BetInProgression betInProg = new BetInProgression(betId, betName, date, odd, stake, 
-                        bukmacher, note, type, progressionId , progressionName, 1);
-                Bet bet = (Bet) betInProg;
-                
-//                aktualizacja list              
-//                aktywne zaklady w progresji
-                DataContainer.listModelActiveInProg.addElement(betInProg);
-                //wszystkie aktywne zaklady
-                DataContainer.listModelAllActive.addElement(bet);
-                * */
+                    bukmacher, note, type, progressionName);
             }
 
             if(jRadioButtonNewProgression.isSelected())
             {
                 progressionName = jTextFieldProgressionName.getText();
                 DataContainer.dataFromDB.getQueryManager().addBetInProgressionNew(betName, date, odd, stake, 
-                        bukmacher, note, type, progressionName);
- /*               
-                //tworzy obiekt, ktory zostanie dodany do listy
-                //betId - zaklad zostal dodany, trzeba zliczyc wszystkie zaklady
-                //progressionId - jak wyzej
-                betId = DataContainer.dataFromDB.getQueryManager().countAllBets() + 1;
-                progressionId = DataContainer.dataFromDB.getQueryManager().countAllProgressions();
-                BetInProgression betInProg = new BetInProgression(betId, betName, date, odd, stake, 
-                        bukmacher, note, type, progressionId , progressionName, 1);
-                Bet bet = (Bet) betInProg;
-                
-                Progression prog = new Progression(progressionId, progressionName, 1);
-                
-                //wszystkie aktywne zaklady
-                DataContainer.listModelAllActive.addElement(bet);
-                //aktywne zaklady w progresji
-                DataContainer.listModelActiveInProg.addElement(betInProg);
-                //aktywne progresje
-                DataContainer.listModelProgressions.addElement(prog);
-                */
-                //uaktualnienie listy progresji w NewBet
+                            bukmacher, note, type, progressionName);
                 refreshComboBox();
             }
-        }
-        else
-        {
-            DataContainer.dataFromDB.getQueryManager().addBet(betName, date, odd, stake, bukmacher, note, type);
-    /*        
-            //betId - zaklad zostal dodany, trzeba zliczyc wszystkie zaklady
-            betId = DataContainer.dataFromDB.getQueryManager().countAllBets() + 1;
-            
-            Bet bet = new Bet(betId, betName, date, odd, stake, bukmacher, note, type);
-            
-            //wszystkie aktywne zaklady
-            DataContainer.listModelAllActive.addElement(bet);
-            //aktywne zaklady nie w progresji
-            DataContainer.listModelActiveNotInProg.addElement(bet);           
-            * */
-        }
-        
-        DataContainer.updateLists();
+         }
+         else
+         {
+                DataContainer.dataFromDB.getQueryManager().addBet(betName, date, odd, stake, bukmacher, note, type);
+         }
+
+         DataContainer.updateLists();     
     }//GEN-LAST:event_jButtonAddBetActionPerformed
 
     private void jCheckBoxProgressionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxProgressionActionPerformed

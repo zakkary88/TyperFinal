@@ -136,20 +136,24 @@ public class PhraseSearcher implements DocumentListener{
         jLabelStatus.setText(msg);
     }
 
+    @Override
     public void insertUpdate(DocumentEvent ev) 
     {
         search();
     }
     
+    @Override
     public void removeUpdate(DocumentEvent ev)
     {
         search();
     }
     
+    @Override
     public void changedUpdate(DocumentEvent ev) {}
         
     class CancelAction extends AbstractAction 
     {
+        @Override
         public void actionPerformed(ActionEvent ev) 
         {
             highlighter.removeAllHighlights();

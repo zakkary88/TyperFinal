@@ -243,25 +243,18 @@ public class XMLParser {
         for(int i=0; i<attributes.getLength(); i++)
         {
             Node attr = attributes.item(i);
-          //  if(attr.getNodeName().contains("Match"))
-         //   {
-                if(attr.getNodeName().equals("name")) 
-                    name = attr.getNodeValue();
 
-                if(attr.getNodeName().equals("betTillDate"))
-                    date = "Date: " + attr.getNodeValue();
+            if(attr.getNodeName().equals("name")) 
+                name = attr.getNodeValue();
 
-                if(attr.getNodeName().equals("betTillTime"))
-                    time = "Time: " + attr.getNodeValue();
-                
-               // System.out.println(name + " || " + date + " || " + time);
-                //musi byc po rozpoznaiu nodename
-                //viewOptions(node);
-       //     }    
+            if(attr.getNodeName().equals("betTillDate"))
+                date = "Date: " + attr.getNodeValue();
+
+            if(attr.getNodeName().equals("betTillTime"))
+                time = "Time: " + attr.getNodeValue();
+ 
         }
-        //System.out.println(name + " || " + date + " || " + time);
         screen.append("\t" + name + " || " + date + " || " + time + "\n");
-        //viewOptions(node);
     }
     
     private void viewLeagueAttributes(Node node)

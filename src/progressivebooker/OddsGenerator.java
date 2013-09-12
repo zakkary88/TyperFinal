@@ -28,8 +28,8 @@ public class OddsGenerator {
         
         if(randomInt == 5)
         {
-            //5.0 - 6.0
-            odd = (rand.nextDouble() + 5) * 100;
+            //4.0 - 5.0
+            odd = (rand.nextDouble() + 4) * 100;
         }
         else
         {
