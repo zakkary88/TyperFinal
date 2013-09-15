@@ -115,7 +115,7 @@ public class ChartsManager extends javax.swing.JPanel {
         BalanceByType = chartsGenerator.drawBalanceByType();
     }
     
-        private void addChartsToList()
+    private void addChartsToList()
     {
         charts.add(Efficiency);
         charts.add(EfficiencyInProg);

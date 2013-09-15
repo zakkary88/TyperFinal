@@ -13,9 +13,9 @@ import java.text.ParseException;
  */
 public class CoverBooker extends javax.swing.JPanel {
 
-    CoverBookerCalc calc; 
-    NumberFormat nf = NumberFormat.getInstance();
-    CoverTypeENUM selectedType; 
+    private CoverBookerCalc calc; 
+    private NumberFormat nf = NumberFormat.getInstance();
+    private CoverTypeENUM selectedType; 
     
     public CoverBooker() {
         initComponents();

@@ -49,9 +49,9 @@ public class ProgressiveBooker extends javax.swing.JPanel {
         jLabel3.setText("Desired profit:");
         jLabel4.setText("Number of events draw odds to generate:");
         jLabelInfo.setText("");
-        jRadioButton1.setText("Steady profit");
-        jRadioButton2.setText("Doubling-Up");
-        jRadioButton3.setText("Fibonacci");
+        jRadioButtonSteadyProfit.setText("Steady profit");
+        jRadioButtonDoublingUp.setText("Doubling-Up");
+        jRadioButtonFibonacci.setText("Fibonacci");
         
         jTextAreaSimulation.setEnabled(false);
         jTextAreaOdds.setEnabled(false);
@@ -75,10 +75,10 @@ public class ProgressiveBooker extends javax.swing.JPanel {
         jLabelDrawFrequency = new javax.swing.JLabel();
         jSliderDrawFrequency = new javax.swing.JSlider();
         jButtonSimulate = new javax.swing.JButton();
-        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButtonSteadyProfit = new javax.swing.JRadioButton();
         jLabel1 = new javax.swing.JLabel();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
+        jRadioButtonDoublingUp = new javax.swing.JRadioButton();
+        jRadioButtonFibonacci = new javax.swing.JRadioButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jTextFieldStake = new javax.swing.JTextField();
@@ -116,30 +116,30 @@ public class ProgressiveBooker extends javax.swing.JPanel {
             }
         });
 
-        buttonGroupProgType.add(jRadioButton1);
-        jRadioButton1.setSelected(true);
-        jRadioButton1.setText("jRadioButton1");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroupProgType.add(jRadioButtonSteadyProfit);
+        jRadioButtonSteadyProfit.setSelected(true);
+        jRadioButtonSteadyProfit.setText("jRadioButton1");
+        jRadioButtonSteadyProfit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                jRadioButtonSteadyProfitActionPerformed(evt);
             }
         });
 
         jLabel1.setText("jLabel1");
 
-        buttonGroupProgType.add(jRadioButton2);
-        jRadioButton2.setText("jRadioButton2");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroupProgType.add(jRadioButtonDoublingUp);
+        jRadioButtonDoublingUp.setText("jRadioButton2");
+        jRadioButtonDoublingUp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
+                jRadioButtonDoublingUpActionPerformed(evt);
             }
         });
 
-        buttonGroupProgType.add(jRadioButton3);
-        jRadioButton3.setText("jRadioButton3");
-        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroupProgType.add(jRadioButtonFibonacci);
+        jRadioButtonFibonacci.setText("jRadioButton3");
+        jRadioButtonFibonacci.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton3ActionPerformed(evt);
+                jRadioButtonFibonacciActionPerformed(evt);
             }
         });
 
@@ -163,7 +163,7 @@ public class ProgressiveBooker extends javax.swing.JPanel {
                 .addGroup(jPanelProgressiveBookerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelProgressiveBookerLayout.createSequentialGroup()
                         .addGroup(jPanelProgressiveBookerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton1)
+                            .addComponent(jRadioButtonSteadyProfit)
                             .addComponent(jLabel1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanelProgressiveBookerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -174,8 +174,8 @@ public class ProgressiveBooker extends javax.swing.JPanel {
                             .addComponent(jButtonGenerate, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanelProgressiveBookerLayout.createSequentialGroup()
                         .addGroup(jPanelProgressiveBookerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton3)
-                            .addComponent(jRadioButton2))
+                            .addComponent(jRadioButtonFibonacci)
+                            .addComponent(jRadioButtonDoublingUp))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanelProgressiveBookerLayout.createSequentialGroup()
                         .addGroup(jPanelProgressiveBookerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -203,14 +203,14 @@ public class ProgressiveBooker extends javax.swing.JPanel {
                     .addComponent(jLabel4))
                 .addGap(4, 4, 4)
                 .addGroup(jPanelProgressiveBookerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton1)
+                    .addComponent(jRadioButtonSteadyProfit)
                     .addComponent(jButtonGenerate))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelProgressiveBookerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanelProgressiveBookerLayout.createSequentialGroup()
-                        .addComponent(jRadioButton2)
+                        .addComponent(jRadioButtonDoublingUp)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jRadioButton3)
+                        .addComponent(jRadioButtonFibonacci)
                         .addGap(30, 30, 30)
                         .addGroup(jPanelProgressiveBookerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
@@ -269,13 +269,13 @@ public class ProgressiveBooker extends javax.swing.JPanel {
         {
             if(jLabelInfo.getText().equals(""))
             {
-                if(jRadioButton1.isSelected())
+                if(jRadioButtonSteadyProfit.isSelected())
                     simulationInfo = ps.getPbm().simulate(drawFrequency, stake, ProgressionTypeENUM.Steady_Profit);
 
-                if(jRadioButton2.isSelected())
+                if(jRadioButtonDoublingUp.isSelected())
                     simulationInfo = ps.getPbm().simulate(drawFrequency, stake, ProgressionTypeENUM.Doubling_Up);
 
-                if(jRadioButton3.isSelected())          
+                if(jRadioButtonFibonacci.isSelected())          
                     simulationInfo = ps.getPbm().simulate(drawFrequency, stake, ProgressionTypeENUM.Fibonacci);  
             }
         }
@@ -301,20 +301,20 @@ public class ProgressiveBooker extends javax.swing.JPanel {
         jTextAreaOdds.setText(odds);
     }//GEN-LAST:event_jButtonGenerateActionPerformed
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+    private void jRadioButtonSteadyProfitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonSteadyProfitActionPerformed
         
         jLabel3.setText("Desired profit:");
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+    }//GEN-LAST:event_jRadioButtonSteadyProfitActionPerformed
 
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+    private void jRadioButtonDoublingUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonDoublingUpActionPerformed
         
         jLabel3.setText("Beggining stake:");
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
+    }//GEN-LAST:event_jRadioButtonDoublingUpActionPerformed
 
-    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
+    private void jRadioButtonFibonacciActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonFibonacciActionPerformed
         
         jLabel3.setText("Beggining stake:");
-    }//GEN-LAST:event_jRadioButton3ActionPerformed
+    }//GEN-LAST:event_jRadioButtonFibonacciActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroupProgType;
@@ -327,9 +327,9 @@ public class ProgressiveBooker extends javax.swing.JPanel {
     private javax.swing.JLabel jLabelDrawFrequency;
     private javax.swing.JLabel jLabelInfo;
     private javax.swing.JPanel jPanelProgressiveBooker;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
+    private javax.swing.JRadioButton jRadioButtonDoublingUp;
+    private javax.swing.JRadioButton jRadioButtonFibonacci;
+    private javax.swing.JRadioButton jRadioButtonSteadyProfit;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSlider jSliderDrawFrequency;

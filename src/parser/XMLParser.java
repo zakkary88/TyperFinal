@@ -82,22 +82,22 @@ public class XMLParser {
 //        return is;
 //    }
     
-    private URI convertToURLEscapingIllegalCharacters(String string)
-    {
-        try 
-        {
-            String decodedURL = URLDecoder.decode(string, "UTF-8");
-            URL url = new URL(decodedURL);
-            URI uri = new URI(url.getProtocol(), url.getUserInfo(), url.getHost(), url.getPort(), url.getPath(), url.getQuery(), url.getRef()); 
-            return uri;  
-        } 
-        catch (Exception ex) 
-        {
-            ex.printStackTrace();
-            return null;
-        }        
-    }
-    
+//    private URI convertToURLEscapingIllegalCharacters(String string)
+//    {
+//        try 
+//        {
+//            String decodedURL = URLDecoder.decode(string, "UTF-8");
+//            URL url = new URL(decodedURL);
+//            URI uri = new URI(url.getProtocol(), url.getUserInfo(), url.getHost(), url.getPort(), url.getPath(), url.getQuery(), url.getRef()); 
+//            return uri;  
+//        } 
+//        catch (Exception ex) 
+//        {
+//            ex.printStackTrace();
+//            return null;
+//        }        
+//    }
+    /*
     public void viewNode(Node parent)
     {
         NodeList children = parent.getChildNodes();
@@ -119,7 +119,7 @@ public class XMLParser {
     {
         viewNode(root);
     }
-    
+    */
     public void parse()
     {
         //oxip
@@ -271,7 +271,7 @@ public class XMLParser {
             }         
         }
     }
-    
+    /*
     private void viewAllAttributes(Node node)
     {
         NamedNodeMap attributes = node.getAttributes();
@@ -287,4 +287,5 @@ public class XMLParser {
             System.out.println();
         }
     }
+    * */
 }

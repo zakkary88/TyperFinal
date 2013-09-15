@@ -43,8 +43,8 @@ public class Bet {
         this.note = note;
         this.type = type;
      
-        this.partOfProgression = 0;     //TODO moze powodowac problemy!!!!
-        this.betStatus = 1;     //jakos nierozstrzygniety
+        this.partOfProgression = 0;     
+        this.betStatus = 1;     //jako nierozstrzygniety
         this.balance = 0;
     }
     
@@ -75,7 +75,7 @@ public class Bet {
         this.date = date;
         this.odd = odd;
         this.stake = stake;
-        this.partOfProgression = partOfProgression;     //TODO moze powodowac problemy!!!!
+        this.partOfProgression = partOfProgression;     
         this.betStatus = betStatus;     
         this.bukmacher = bukmacher;
         this.note = note;
@@ -86,7 +86,7 @@ public class Bet {
     @Override
     public String toString()
     {
-        return betId + " " + betName;
+        return betName;
     }
     
     public int getBetId() 

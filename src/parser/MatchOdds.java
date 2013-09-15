@@ -43,7 +43,7 @@ public class MatchOdds extends javax.swing.JPanel {
         jRadioButtonDoubleChance.setText("Double Chance");
         jRadioButtonOverUnder.setText("Under/Over");
         jRadioButtonMatchResult.setSelected(true);
-        jButtonRefresh.setText("Get Odds");
+        jButtonGetOdds.setText("Get Odds");
         jButtonNextOccurence.setText("Next occurence");
         jLabelStatus.setText("");
         jLabel1.setText("Phrase to search:");
@@ -67,7 +67,7 @@ public class MatchOdds extends javax.swing.JPanel {
         buttonGroupChoice = new javax.swing.ButtonGroup();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextAreaOdds = new javax.swing.JTextArea();
-        jButtonRefresh = new javax.swing.JButton();
+        jButtonGetOdds = new javax.swing.JButton();
         jRadioButtonMatchResult = new javax.swing.JRadioButton();
         jRadioButtonDoubleChance = new javax.swing.JRadioButton();
         jRadioButtonOverUnder = new javax.swing.JRadioButton();
@@ -80,10 +80,10 @@ public class MatchOdds extends javax.swing.JPanel {
         jTextAreaOdds.setRows(5);
         jScrollPane1.setViewportView(jTextAreaOdds);
 
-        jButtonRefresh.setText("jButton1");
-        jButtonRefresh.addActionListener(new java.awt.event.ActionListener() {
+        jButtonGetOdds.setText("jButton1");
+        jButtonGetOdds.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonRefreshActionPerformed(evt);
+                jButtonGetOddsActionPerformed(evt);
             }
         });
 
@@ -133,7 +133,7 @@ public class MatchOdds extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButtonRefresh)
+                                .addComponent(jButtonGetOdds)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jRadioButtonMatchResult)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -154,7 +154,7 @@ public class MatchOdds extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonRefresh)
+                    .addComponent(jButtonGetOdds)
                     .addComponent(jRadioButtonMatchResult)
                     .addComponent(jRadioButtonDoubleChance)
                     .addComponent(jRadioButtonOverUnder))
@@ -171,7 +171,7 @@ public class MatchOdds extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRefreshActionPerformed
+    private void jButtonGetOddsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGetOddsActionPerformed
         
         EventQueue.invokeLater(new Runnable() {
 
@@ -202,7 +202,7 @@ public class MatchOdds extends javax.swing.JPanel {
             }
         });
  
-    }//GEN-LAST:event_jButtonRefreshActionPerformed
+    }//GEN-LAST:event_jButtonGetOddsActionPerformed
 
     private void jRadioButtonMatchResultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMatchResultActionPerformed
         
@@ -226,8 +226,8 @@ public class MatchOdds extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroupChoice;
+    private javax.swing.JButton jButtonGetOdds;
     private javax.swing.JButton jButtonNextOccurence;
-    private javax.swing.JButton jButtonRefresh;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelStatus;
     private javax.swing.JRadioButton jRadioButtonDoubleChance;

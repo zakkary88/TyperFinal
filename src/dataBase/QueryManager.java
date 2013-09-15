@@ -9,6 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.LinkedList;
+import java.util.Random;
 import javax.swing.JComboBox;
 
 /**
@@ -63,8 +64,8 @@ public class QueryManager {
     private PreparedStatement viewLostBetsNotInProgressionStmt = null;
     private PreparedStatement viewWonBetsInProgressionStmt = null;
     private PreparedStatement viewLostBetsInProgressionStmt = null;
-    private PreparedStatement viewWonProgressionsStmt = null;
-    private PreparedStatement viewLostProgressionsStmt = null;
+//    private PreparedStatement viewWonProgressionsStmt = null;
+//    private PreparedStatement viewLostProgressionsStmt = null;
     
     private PreparedStatement viewProgressionStmt = null;
     private PreparedStatement viewBetNotInProgInfoStmt = null;
@@ -117,6 +118,8 @@ public class QueryManager {
     private PreparedStatement deleteProgressionStmt = null;
     private PreparedStatement deleteProgressionBetsStmt = null;
     private PreparedStatement delMakeBetsNotInProgStmt = null;
+    
+    private Random random = null;
   
     //////////////////////////////////////////////////////////
     //ZAPYTANIA
@@ -356,6 +359,7 @@ public class QueryManager {
     public QueryManager(Connection conn)
     {
         this.conn = conn;
+        this.random = new Random();
     }
     
     private int setId()
@@ -1233,7 +1237,7 @@ public class QueryManager {
             
             
             //dodaje progresję          
-            addProgressionStmt.setInt(1, progressionId);
+           addProgressionStmt.setInt(1, progressionId);
             addProgressionStmt.setString(2, progressionName);
             
             result = addProgressionStmt.executeUpdate();

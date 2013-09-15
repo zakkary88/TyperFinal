@@ -59,8 +59,8 @@ public class BetInProgression extends Bet{
     @Override
     public String toString()
     {
-        return betId + " " + betName + " | " + progression.getProgressionName() 
-                + " " + progression.getProgressionId();
+        return betName + " (" + progression.getProgressionName() 
+                + " - " + progression.getProgressionId() + ")";
     }
     
     public Progression getProgression() 

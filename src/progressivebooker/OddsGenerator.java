@@ -13,7 +13,7 @@ import java.util.Random;
  */
 public class OddsGenerator {
       
-    Random rand;
+    private Random rand;
     
     public OddsGenerator()
     {

@@ -20,7 +20,7 @@ import javax.swing.ListModel;
  */
 public class BetsManager extends javax.swing.JPanel {
     
-    private int betId = 0;
+    private int id = 0;
     
     private Bet selectedBet = null;
     private BetInProgression selectedBetInProg = null;
@@ -639,8 +639,8 @@ public class BetsManager extends javax.swing.JPanel {
                 DataContainer.object = DataContainer.listModelEndedBetsToUpdate.getElementAt
                         (jListEndedBetsToUpdate.getSelectedIndex());
                 selectedBet = (Bet) DataContainer.object;
-                betId = selectedBet.getBetId();
-                DataContainer.id = betId;
+                id = selectedBet.getBetId();
+                DataContainer.id = id;
                 betInfo = DataContainer.dataFromDB.getBetNotInProgInfo(selectedBet);
             }
             
@@ -649,8 +649,8 @@ public class BetsManager extends javax.swing.JPanel {
                 DataContainer.object = DataContainer.listModelEndedBetsInProgToUpdate.getElementAt
                         (jListEndedBetsInProgToUpdate.getSelectedIndex());
                 selectedBetInProg = (BetInProgression) DataContainer.object;
-                betId = selectedBetInProg.getBetId();
-                DataContainer.id = betId;
+                id = selectedBetInProg.getBetId();
+                DataContainer.id = id;
                 betInfo = DataContainer.dataFromDB.getBetInProgressionInfo(selectedBetInProg);
             }         
             
@@ -692,8 +692,8 @@ public class BetsManager extends javax.swing.JPanel {
                 //zapamietanie danych zakladu
                 DataContainer.object = jListBets.getSelectedValue();             
                 selectedBet = (Bet) DataContainer.object;
-                betId = selectedBet.getBetId();
-                DataContainer.id = betId;
+                id = selectedBet.getBetId();
+                DataContainer.id = id;
     }
     
     private void saveBetInProgData()
@@ -701,8 +701,8 @@ public class BetsManager extends javax.swing.JPanel {
                 //zapamietanie danych zakladu
                 DataContainer.object = jListBets.getSelectedValue();
                 selectedBetInProg = (BetInProgression) DataContainer.object;
-                betId = selectedBetInProg.getBetId();
-                DataContainer.id = betId;
+                id = selectedBetInProg.getBetId();
+                DataContainer.id = id;
     }
     
     private void saveProgressionData(ListModel listModel)
@@ -711,8 +711,8 @@ public class BetsManager extends javax.swing.JPanel {
         DataContainer.object = listModel.getElementAt(
                 jListBets.getSelectedIndex());
         selectedProgression = (Progression) DataContainer.object;
-        betId = selectedProgression.getProgressionId();
-        DataContainer.id = betId;
+        id = selectedProgression.getProgressionId();
+        DataContainer.id = id;
     }
     
     private void runEditWindow()

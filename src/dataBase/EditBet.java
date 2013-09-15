@@ -436,7 +436,7 @@ public class EditBet extends javax.swing.JPanel {
         jTextFieldBetName.setText(betNotInProg.getBetName());
 
         String date = betNotInProg.getDate();
-        selectData(date);
+        selectDate(date);
         
         jTextFieldOdd.setText(Double.toString(betNotInProg.getOdd()));
         jTextFieldStake.setText(Double.toString(betNotInProg.getStake()));
@@ -462,7 +462,7 @@ public class EditBet extends javax.swing.JPanel {
         jTextFieldBetName.setText(betInProg.getBetName());
 
         String date = betInProg.getDate();
-        selectData(date);
+        selectDate(date);
         
         jTextFieldOdd.setText(Double.toString(betInProg.getOdd()));
         jTextFieldStake.setText(Double.toString(betInProg.getStake()));
@@ -501,7 +501,7 @@ public class EditBet extends javax.swing.JPanel {
         return progIndex;
     }
     
-    private void selectData(String date)
+    private void selectDate(String date)
     {
         String year = calendar.getYear(date);
         String month = calendar.getMonth(date);
@@ -626,7 +626,8 @@ public class EditBet extends javax.swing.JPanel {
                 
                 //dodaje progresje, zeby mozna bylo pobrac nowe id progresji dla zakladu
                 DataContainer.dataFromDB.getQueryManager().addProgression(progressionName);
-                progressionId = DataContainer.dataFromDB.getQueryManager().countAllProgressions(); 
+                
+                //progressionId = DataContainer.dataFromDB.getQueryManager().countAllProgressions(); 
                 
                 //status progresji zalezy od statusu zakladu
                 //status zakladu - 1 lub 3 -> status progresji = 1 (progresja trwa)
